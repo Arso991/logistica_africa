@@ -13,7 +13,7 @@
     <meta name="keywords"
         content="logistiques,engins, machines, terrasement,location de machines,location d'engins,manutention,levage,chantiers,flotte,équipements,matériels,devis, btp, transport de granulat, génie civil.">
 
-    @include('layouts.inc.styles')
+    @include('layouts.inc.frontend.styles')
 </head>
 
 <body class="app ltr landing-page horizontal">
@@ -22,7 +22,7 @@
     <div class="page">
         <div class="page-main">
             {{-- HEADER --}}
-            @include('layouts.inc.header')
+            @include('layouts.inc.frontend.header')
 
             <!--app-content open-->
             <div class="main-content mt-0">
@@ -32,15 +32,15 @@
         </div>
 
         {{-- FOOTER --}}
-        @include('layouts.inc.footer')
+        @include('layouts.inc.frontend.footer')
 
     </div>
 
     <!-- BACK-TO-TOP -->
-    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+    {{-- <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a> --}}
 
     {{-- SCRIPTS --}}
-    @include('layouts.inc.scripts')
+    @include('layouts.inc.frontend.scripts')
 </body>
 
 </html>

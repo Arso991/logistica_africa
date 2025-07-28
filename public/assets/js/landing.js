@@ -311,6 +311,36 @@
       });
   }
 
+  //Switch into recap and form
+  $(document).ready(function () {
+    $('#show-recap').click(function () {
+      $('#recap-section').show();
+      $('#form-section').hide();
+
+      // Update button styles
+      $('#show-recap').addClass('bg-primary text-[#f2722b] border border-[#f2722b]').removeClass('bg-gray-200 text-gray-700');
+      $('#show-form').addClass('bg-gray-200 text-gray-700').removeClass('bg-primary text-[#f2722b] border border-[#f2722b]');
+    });
+
+    $('#show-form').click(function () {
+      $('#recap-section').hide();
+      $('#form-section').show();
+
+      // Update button styles
+      $('#show-form').addClass('bg-primary text-[#f2722b] border border-[#f2722b]').removeClass('bg-gray-200 text-gray-700');
+      $('#show-recap').addClass('bg-gray-200 text-gray-700').removeClass('bg-primary text-[#f2722b] border border-[#f2722b]');
+    });
+
+    $('#next-step').click(function () {
+      $('#recap-section').hide();
+      $('#form-section').show();
+
+      // Update button styles
+      $('#show-form').addClass('bg-primary text-[#f2722b] border border-[#f2722b]').removeClass('bg-gray-200 text-gray-700');
+      $('#show-recap').addClass('bg-gray-200 text-gray-700').removeClass('bg-primary text-[#f2722b] border border-[#f2722b]');
+    });
+  });
+
 })(jQuery);
 
 

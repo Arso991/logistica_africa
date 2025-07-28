@@ -41,7 +41,7 @@ class TestimonialSeeder extends Seeder
             [
                 'name' => 'Julie Martin',
                 'description' => 'Je suis impressionnée par la qualité du service.',
-                'status' => true,
+                'status' => false,
                 'image' => null,
             ],
         ];

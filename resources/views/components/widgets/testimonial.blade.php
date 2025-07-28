@@ -6,37 +6,16 @@
         </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="space-y-4 p-4 text-sm sm:text-[1rem] bg-[#f8f9fb] rounded-md">
-            <div class="flex items-center gap-4">
-                <div class="w-[4rem] h-[4rem] overflow-hidden rounded-full">
-                    <img src="{{ asset('assets/images/brand/machine4.jpg') }}" class="w-full h-full object-cover"
-                        alt="">
+        @foreach ($testimonials as $item)
+            <div class="space-y-4 p-4 text-sm sm:text-[1rem] bg-[#f8f9fb] rounded-md">
+                <div class="flex items-center gap-4">
+                    <div class="w-[4rem] h-[4rem] overflow-hidden rounded-full">
+                        <img src="{{ asset($item->image) }}" class="w-full h-full object-cover" alt="Avatar">
+                    </div>
+                    <h2 class="font-semibold">{{ $item->name }}</h2>
                 </div>
-                <h2 class="font-semibold">Hermann H.</h2>
+                <p>{{ $item->description }}</p>
             </div>
-            <p>Bon accueil, matériel de qualité. Je recommande vivement!</p>
-        </div>
-
-        <div class="space-y-4 p-4 text-sm sm:text-[1rem] bg-[#f8f9fb] rounded-md">
-            <div class="flex items-center gap-4">
-                <div class="w-[4rem] h-[4rem] overflow-hidden rounded-full">
-                    <img src="{{ asset('assets/images/brand/machine4.jpg') }}" class="w-full h-full object-cover"
-                        alt="">
-                </div>
-                <h2 class="font-semibold">Hermann H.</h2>
-            </div>
-            <p>Bon accueil, matériel de qualité. Je recommande vivement!</p>
-        </div>
-
-        <div class="space-y-4 p-4 text-sm sm:text-[1rem] bg-[#f8f9fb] rounded-md">
-            <div class="flex items-center gap-4">
-                <div class="w-[4rem] h-[4rem] overflow-hidden rounded-full">
-                    <img src="{{ asset('assets/images/brand/machine4.jpg') }}" class="w-full h-full object-cover"
-                        alt="">
-                </div>
-                <h2 class="font-semibold">Hermann H.</h2>
-            </div>
-            <p>Bon accueil, matériel de qualité. Je recommande vivement!</p>
-        </div>
+        @endforeach
     </div>
 </section>

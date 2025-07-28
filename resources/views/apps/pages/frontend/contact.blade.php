@@ -51,17 +51,17 @@
                     <div class="flex flex-col space-y-1">
                         <label for="email">Email</label>
                         <input type="email" id="email" placeholder="Veuillez entrer votre email" name="email"
-                            class="rounded-md border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
+                            class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
                     </div>
                     <div class="flex flex-col space-y-1">
                         <label for="subject">Objet</label>
                         <input type="text" id="subject" placeholder="Veuillez entrer l'objet" name="subject"
-                            class="rounded-md border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
+                            class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
                     </div>
                     <div class="flex flex-col space-y-1">
                         <label for="message">Message</label>
                         <textarea id="message" placeholder="Veuillez entrer votre message" name="message" rows="4"
-                            class="rounded-md border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full"></textarea>
+                            class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full"></textarea>
                     </div>
                     <div class="flex justify-start mt-4">
                         <button type="submit" class="px-4 py-2 btn-custom">Envoyer</button>

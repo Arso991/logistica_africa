@@ -32,6 +32,7 @@ class ServiceSeeder extends Seeder
             [
                 'title' => 'Marketing Digital',
                 'description' => 'Stratégies digitales pour booster votre audience et vos conversions.',
+                'status' => false,
                 'image' => 'services/digital-marketing.jpg',
             ],
             [
