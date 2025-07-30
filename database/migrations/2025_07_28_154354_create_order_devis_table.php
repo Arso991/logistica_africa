@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('client_phone')->nullable();
             $table->string('client_company')->nullable();
             $table->string('client_role')->nullable();
-            $table->string('motif')->nullable();
+            $table->longText('motif')->nullable();
             $table->timestamps();
         });
     }

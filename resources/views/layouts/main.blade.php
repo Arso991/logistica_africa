@@ -29,6 +29,8 @@
                 @yield('content')
             </div>
             <!--app-content closed-->
+
+            @include('shared.alert')
         </div>
 
         {{-- FOOTER --}}
@@ -37,7 +39,7 @@
     </div>
 
     <!-- BACK-TO-TOP -->
-    {{-- <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a> --}}
+    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
     {{-- SCRIPTS --}}
     @include('layouts.inc.frontend.scripts')

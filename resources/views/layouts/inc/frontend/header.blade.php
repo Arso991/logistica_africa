@@ -5,12 +5,16 @@
         <p class="italic"> Contactez-nous au : 01 000 000 000</p>
     </div>
     <div class="relative">
-        <input value="{{ old('query') }}" name="query"
-            class="rounded-xl border-gray-200 focus:outline-none border-1 py-1 px-4 outline-none w-full" type="text"
-            placeholder="Rechercher un materiel...">
-        <button class="absolute z-30 inset-y-0 right-0 flex items-center pr-2 cursor-pointer">
-            <span class="mdi mdi-magnify text-xl text-[#f2722b]"></span>
-        </button>
+        <form action="{{ route('view.catalog') }}" method="GET">
+            @csrf
+            <input value="{{ request('search') }}" name="search"
+                class="rounded-xl border-gray-200 focus:outline-none border py-1 px-4 outline-none w-full" type="text"
+                placeholder="Rechercher un materiel...">
+            <button onclick="this.form.submit()"
+                class="absolute z-30 inset-y-0 right-0 flex items-center pr-2 cursor-pointer">
+                <span class="mdi mdi-magnify text-xl text-[#f2722b]"></span>
+            </button>
+        </form>
     </div>
     <div class="flex items-center gap-3">
         <a target="_blank" href="#" class="hover:text-[#f2722b]">
@@ -39,7 +43,7 @@
             </li>
             <li>
                 <a href="{{ route('view.catalog') }}"
-                    class="hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('catalog') || Request::is('detail*') ? 'font-medium text-[#f2722b]' : '' }}">Catalogue</a>
+                    class="hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('catalog') || Request::is('detail*') || Request::is('devis*') || Request::is('congrats*') || Request::is('search*') ? 'font-medium text-[#f2722b]' : '' }}">Catalogue</a>
             </li>
             <li>
                 <a href="{{ route('view.posts') }}"

@@ -6,8 +6,9 @@ use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\TestimonialController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\ValueController;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\frontend\CartController;
 use App\Http\Controllers\frontend\ViewController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::group([], function () {
@@ -20,6 +21,8 @@ Route::group([], function () {
     Route::get('/detail/{id}',                          [ViewController::class, 'detail'])->name('view.detail');
     Route::get('/devis',                                [ViewController::class, 'devis'])->name('view.devis');
     Route::get('/cart',                                 [CartController::class, 'index'])->name('view.cart');
+    Route::get('/congrats',                             [ViewController::class, 'congrats'])->name('view.congrats');
+    Route::get('/search',                               [ViewController::class, 'searchStore'])->name('view.search');
 
     Route::post('/cart/add',                            [CartController::class, 'add'])->name('cart.add');
     Route::post('/cart/remove',                         [CartController::class, 'remove'])->name('cart.remove');
@@ -62,4 +65,12 @@ Route::prefix('panel')->name('panel.')->group(function () {
     Route::get('/testimonials/{id}',                    [TestimonialController::class, 'store'])->name('testimonials.store');
     Route::put('/testimonials/{id}',                    [TestimonialController::class, 'update'])->name('testimonials.update');
     Route::delete('/testimonials/{id}',                 [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
+});
+
+Route::get('/run-setup', function () {
+    Artisan::call('migrate:fresh', ['--force' => true]);
+    Artisan::call('db:seed', ['--force' => true]);
+    Artisan::call('config:cache');
+    Artisan::call('route:cache');
+    return 'Setup executed.';
 });

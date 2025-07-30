@@ -23,7 +23,7 @@
         }
 
         .header {
-            background: #003169;
+            background: black;
             color: #ffffff;
             padding: 15px;
             text-align: center;
@@ -42,7 +42,7 @@
         }
 
         .btn {
-            background: #187945;
+            background: #fff1e7;
             color: white;
             text-decoration: none;
             padding: 10px 20px;
@@ -64,40 +64,52 @@
 
             <table border="0" cellpadding="5" cellspacing="0" width="100%">
                 <tr>
-                    <td><strong>Société :</strong></td>
-                    <td>{{ $data['societe'] ?? 'Non renseigné' }}</td>
+                    <td><strong>Nom & Prénom :</strong></td>
+                    <td>{{ $devisData['client_lastname'] }} {{ $devisData['client_firstname'] }}</td>
                 </tr>
                 <tr>
                     <td><strong>Email :</strong></td>
-                    <td>{{ $data['email'] }}</td>
+                    <td>{{ $devisData['client_email'] }}</td>
                 </tr>
-                <tr>
-                    <td><strong>Nom & Prénom :</strong></td>
-                    <td>{{ $data['nom'] }} {{ $data['prenoms'] }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Adresse d'intervention :</strong></td>
-                    <td>{{ $data['adresseintervention'] }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Description du projet :</strong></td>
-                    <td>{{ $data['projetMessage'] }}</td>
-                </tr>
+                @if (!empty($devisData['client_company']))
+                    <tr>
+                        <td><strong>Entreprise :</strong></td>
+                        <td>{{ $devisData['client_company'] ?? 'Non renseigné' }}</td>
+                    </tr>
+                @endif
+
+                @if (!empty($devisData['client_phone']))
+                    <tr>
+                        <td><strong>Téléphone :</strong></td>
+                        <td>{{ $devisData['client_phone'] ?? 'Non renseigné' }}</td>
+                    </tr>
+                @endif
+
+                @if (!empty($devisData['client_role']))
+                    <tr>
+                        <td><strong>Fonction :</strong></td>
+                        <td>{{ $devisData['client_role'] }}</td>
+                    </tr>
+                @endif
+
+                @if (!empty($devisData['motif']))
+                    <tr>
+                        <td><strong>Motif :</strong></td>
+                        <td>{{ $devisData['motif'] }}</td>
+                    </tr>
+                @endif
+
+                @if (!empty($devisData['cart']))
+                    <tr>
+                        <td><strong>Engins :</strong></td>
+                        <td>
+                            @foreach ($devisData['cart'] as $item)
+                                <p><span>{{ $item['product']['name'] }}</span> * <span>{{ $item['qty'] }}</span></p>
+                            @endforeach
+                        </td>
+                    </tr>
+                @endif
             </table>
-
-            @if (!empty($data['plan_topographique']))
-                <p>Vous pouvez télécharger le plan topographique en cliquant sur le bouton ci-dessous :</p>
-                <p><a href="{{ asset('storage/' . $data['plan_topographique']) }}" class="btn" download>Télécharger
-                        le fichier</a></p>
-            @endif
-
-            @if (!empty($data['autre_document']))
-                <p>Autre document technique:</p>
-                <p>
-                    <a href="{{ asset('storage/' . $data['autre_document']) }}" class="btn" download>Télécharger le
-                        fichier</a>
-                </p>
-            @endif
 
             <p>Merci de traiter cette demande rapidement.</p>
 

@@ -29,20 +29,28 @@
                         <p>Année de fabrication</p>
                         <p>{{ $machine->production_year }}</p>
                     </div>
-                    <div class="flex items-center py-2 bg-gray-50 px-2 rounded-sm justify-between">
-                        <p>Télécharger fiche technique</p>
-                        <a href=""
-                            class="h-[1.5rem] w-[1.5rem] rounded-full border border-[#333333] flex justify-center items-center">
-                            <span class="mdi mdi-download"></span>
-                        </a>
-                    </div>
+                    @if ($machine->technical_sheet)
+                        <div class="flex items-center py-2 bg-gray-50 px-2 rounded-sm justify-between">
+                            <p>Télécharger fiche technique</p>
+                            <a href=""
+                                class="h-[1.5rem] w-[1.5rem] rounded-full border border-[#333333] flex justify-center items-center">
+                                <span class="mdi mdi-download"></span>
+                            </a>
+                        </div>
+                    @endif
                 </div>
                 <div class="text-sm sm:text-[1rem] leading-7 border-b border-gray-200 space-y-2">
                     <h2 class="font-semibold">Tarif de location journalière</h2>
                     <div class="flex items-center justify-between">
                         <p>{{ $machine->price }} F CFA</p>
-                        <a href="{{ route('view.devis') }}" class=" btn-custom">Demander un devis
-                        </a>
+
+                        {{-- Add product in cart --}}
+                        <form action="{{ route('cart.add') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $machine->id }}">
+                            <button type="submit" class=" btn-custom">Demander un devis
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <div class="text-sm sm:text-[1rem] leading-7 space-y-2">

@@ -44,6 +44,8 @@
                     </div>
                     <!-- CONTAINER END -->
                 </div>
+
+                @include('shared.alert')
             </div>
             <!--app-content close-->
         </div>

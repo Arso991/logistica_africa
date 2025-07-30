@@ -10,7 +10,9 @@
             </div>
             <div class="w-full md:w-1/2 mt-4 md:mt-0 space-y-6">
                 <p class="text-sm sm:text-[1rem] leading-7">{{ $about->about_text }}</p>
-                <button class="btn-custom px-4 py-2">Lire plus</button>
+                <div class="flex">
+                    <a href="{{ route('view.about') }}" class="btn-custom px-4 py-2">Lire plus</a>
+                </div>
             </div>
         </div>
     </div>

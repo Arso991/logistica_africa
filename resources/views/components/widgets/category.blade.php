@@ -8,8 +8,10 @@
                 <div class="absolute top-0 left-0 w-full flex items-center p-5">
                     <div class="space-y-4 text-white text-sm sm:text-[1rem]">
                         <p class="uppercase font-semibold">{{ $item->description }}</p>
-
-                        <button class="btn-custom px-4 py-2">Découvrir</button>
+                        <div class="flex">
+                            <a href="{{ route('view.catalog', ['category' => $item->id]) }}"
+                                class="btn-custom px-4 py-2">Découvrir</a>
+                        </div>
                     </div>
                 </div>
             </div>

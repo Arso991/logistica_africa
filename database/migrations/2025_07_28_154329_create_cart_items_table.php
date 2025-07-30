@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('machine_id');
             $table->integer('quantity');
             $table->string('session_id')->nullable();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('machine_id')->references('id')->on('machines')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

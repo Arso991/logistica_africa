@@ -28,16 +28,17 @@
                         <h2 class="text-[14px] sm:text-lg font-semibold">Pages</h2>
                         <ul class="text-sm sm:text-[1rem] space-y-3">
                             <li>
-                                <a href="" class="hover:text-[#333333]">Accueil</a>
+                                <a href="{{ route('view.home') }}" class="hover:text-[#333333]">Accueil</a>
                             </li>
                             <li>
-                                <a href="" class="hover:text-[#333333]">A propos de nous</a>
+                                <a href="{{ route('view.about') }}" class="hover:text-[#333333]">A propos de nous</a>
                             </li>
                             <li>
-                                <a href="" class="hover:text-[#333333]">Nos services</a>
+                                <a href="{{ route('view.home') }}#services" class="hover:text-[#333333]">Nos
+                                    services</a>
                             </li>
                             <li>
-                                <a href="" class="hover:text-[#333333]">Nos clients</a>
+                                <a href="{{ route('view.home') }}#clients" class="hover:text-[#333333]">Nos clients</a>
                             </li>
                         </ul>
                     </div>
@@ -45,13 +46,13 @@
                         <h2 class="text-[14px] sm:text-lg font-semibold">Informations</h2>
                         <ul class="text-sm sm:text-[1rem] space-y-3">
                             <li>
-                                <a href="" class="hover:text-[#333333]">Nos actualités</a>
+                                <a href="{{ route('view.posts') }}" class="hover:text-[#333333]">Nos actualités</a>
                             </li>
                             <li>
-                                <a href="" class="hover:text-[#333333]">Nous contacter</a>
+                                <a href="{{ route('view.contact') }}" class="hover:text-[#333333]">Nous contacter</a>
                             </li>
                             <li>
-                                <a href="" class="hover:text-[#333333]">Demander un devis</a>
+                                <a href="{{ route('view.devis') }}" class="hover:text-[#333333]">Demander un devis</a>
                             </li>
                             <li>
                                 <a href="" class="hover:text-[#333333]">Politique de confidentialités</a>

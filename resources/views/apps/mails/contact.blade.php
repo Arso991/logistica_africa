@@ -23,7 +23,7 @@
             }
 
             .header {
-                background: #003169;
+                background: black;
                 color: #ffffff;
                 padding: 15px;
                 text-align: center;
@@ -60,20 +60,16 @@
             </div>
             <div class="content">
                 <p>Bonjour,</p>
-                <p>Vous avez reçu un nouveau mail de contact de : {{ $mailData['email'] }} :</p>
+                <p>Vous avez reçu un nouveau mail de contact de : {{ $contact['email'] }} :</p>
 
                 <table border="0" cellpadding="5" cellspacing="0" width="100%">
                     <tr>
-                        <td><strong>Nom :</strong></td>
-                        <td>{{ $mailData['lastname'] }}</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Prénoms :</strong></td>
-                        <td>{{ $mailData['firstname'] }}</td>
+                        <td><strong>Objet :</strong></td>
+                        <td>{{ $contact['subject'] }}</td>
                     </tr>
                     <tr>
                         <td><strong>Message :</strong></td>
-                        <td>{{ $mailData['message'] }}</td>
+                        <td>{{ $contact['message'] }}</td>
                     </tr>
                 </table>
 

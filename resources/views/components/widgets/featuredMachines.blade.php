@@ -2,7 +2,7 @@
     <div class="flex items-center justify-between">
         @include('components.widgets.title', ['title' => 'Machines en vedette'])
 
-        <button class="btn-custom px-4 py-2 text-nowrap">Voir plus</button>
+        <a href="{{ route('view.catalog') }}" class="btn-custom px-4 py-2 text-nowrap">Voir plus</a>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         @foreach ($machines as $item)
@@ -14,7 +14,8 @@
                 </div>
                 <div class="text-sm sm:text-[1rem] space-y-2 px-2 py-4 rounded-b-xl">
                     <h1 class="font-semibold">{{ $item->name }}</h1>
-                    <a href="" class="hover:underline hover:text-[#f2722b] block">Voir</a>
+                    <a href="{{ route('view.detail', $item->id) }}"
+                        class="hover:underline hover:text-[#f2722b] block">Voir</a>
                 </div>
             </div>
         @endforeach

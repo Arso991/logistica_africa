@@ -9,7 +9,6 @@ use App\Models\Category;
 use App\Models\Machine;
 use App\Models\Post;
 use App\Models\Service;
-use App\Models\Testimonial;
 use App\Models\Value;
 use Illuminate\Http\Request;
 
@@ -34,11 +33,24 @@ class ViewController extends Controller
         return view('apps.pages.frontend.about', compact('about', 'values'));
     }
 
-    public function catalog()
+    public function catalog(Request $request)
     {
-        $machines = Machine::latest()->get();
+        $query = Machine::query();
 
-        return view('apps.pages.frontend.catalog', compact('machines'));
+        // Recherche par nom
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        // Filtrage par catégorie
+        if ($request->filled('category')) {
+            $query->where('category_id', $request->category);
+        }
+
+        $machines = $query->latest()->paginate(12);
+        $categories = Category::all(); // Pour le filtre dans la vue
+
+        return view('apps.pages.frontend.catalog', compact('machines', 'categories'));
     }
 
     public function posts()
@@ -73,6 +85,30 @@ class ViewController extends Controller
 
     public function devis()
     {
-        return view('apps.pages.frontend.devis');
+        $cart = session()->get('cart', []);
+        return view('apps.pages.frontend.devis', compact('cart'));
+    }
+
+    public function congrats()
+    {
+        return view('apps.pages.frontend.congrats');
+    }
+
+    public function searchStore(Request $request)
+    {
+        $machines = Machine::all();
+
+        if ($request->has('query') && $request->input('query') != '') {
+            $query = $request->input('query');
+
+            $machines = Machine::where(function ($q) use ($query) {
+                $q->where('name', 'LIKE', "%{$query}%");
+            })
+                ->paginate(9);
+        } else {
+            $machines = Machine::latest()->paginate(9);
+        }
+
+        return view('apps.pages.frontend.catalog', compact('machines'));
     }
 }
