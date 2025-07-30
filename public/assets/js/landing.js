@@ -242,10 +242,10 @@
     var navbar = $('#navbar');
     var menuList = $('#menu-list');
     var openSidebar = $('#openSidebar');
-    var scrollTrigger = 578;
+    var scrollTrigger = 80;
 
     if (window.location.pathname !== '/') {
-      scrollTrigger = 120; // Déclenche le changement plus tôt
+      scrollTrigger = 80; // Déclenche le changement plus tôt
     }
 
     $(window).scroll(function () {
@@ -310,6 +310,50 @@
         console.error("Erreur de géocodage :", error);
       });
   }
+
+  //Switch into recap and form
+  $(document).ready(function () {
+    $('#show-recap').click(function () {
+      $('#recap-section').show();
+      $('#form-section').hide();
+
+      // Update button styles
+      $('#show-recap').addClass('bg-primary text-[#f2722b] border border-[#f2722b]').removeClass('bg-gray-200 text-gray-700');
+      $('#show-form').addClass('bg-gray-200 text-gray-700').removeClass('bg-primary text-[#f2722b] border border-[#f2722b]');
+    });
+
+    $('#show-form').click(function () {
+      $('#recap-section').hide();
+      $('#form-section').show();
+
+      // Update button styles
+      $('#show-form').addClass('bg-primary text-[#f2722b] border border-[#f2722b]').removeClass('bg-gray-200 text-gray-700');
+      $('#show-recap').addClass('bg-gray-200 text-gray-700').removeClass('bg-primary text-[#f2722b] border border-[#f2722b]');
+    });
+
+    $('#next-step').click(function () {
+      $('#recap-section').hide();
+      $('#form-section').show();
+
+      // Update button styles
+      $('#show-form').addClass('bg-primary text-[#f2722b] border border-[#f2722b]').removeClass('bg-gray-200 text-gray-700');
+      $('#show-recap').addClass('bg-gray-200 text-gray-700').removeClass('bg-primary text-[#f2722b] border border-[#f2722b]');
+    });
+  });
+
+  //Category filter
+  $('#category-filter').on('change', function () {
+    let categoryId = $(this).val();
+    let params = new URLSearchParams(window.location.search);
+
+    if (categoryId) {
+      params.set('category', categoryId);
+    } else {
+      params.delete('category');
+    }
+
+    window.location.search = params.toString();
+  });
 
 })(jQuery);
 

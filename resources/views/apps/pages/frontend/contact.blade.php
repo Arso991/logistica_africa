@@ -47,21 +47,25 @@
         <div class=" block md:flex items-center gap-8">
             <div class="w-full md:w-1/2 p-6 rounded-xl border border-dashed border-gray-200">
                 <h2 class="text-sm sm:text-[1rem] font-semibold mb-4">Envoyez-nous un message</h2>
-                <form action="" method="POST" class="space-y-4">
+                <form action="{{ route('contact.store') }}" method="POST" class="space-y-4">
+                    @csrf
+
                     <div class="flex flex-col space-y-1">
                         <label for="email">Email</label>
                         <input type="email" id="email" placeholder="Veuillez entrer votre email" name="email"
-                            class="rounded-md border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
+                            value="{{ old('email') }}"
+                            class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
                     </div>
                     <div class="flex flex-col space-y-1">
                         <label for="subject">Objet</label>
                         <input type="text" id="subject" placeholder="Veuillez entrer l'objet" name="subject"
-                            class="rounded-md border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
+                            value="{{ old('subject') }}"
+                            class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
                     </div>
                     <div class="flex flex-col space-y-1">
                         <label for="message">Message</label>
                         <textarea id="message" placeholder="Veuillez entrer votre message" name="message" rows="4"
-                            class="rounded-md border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full"></textarea>
+                            class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full"></textarea>
                     </div>
                     <div class="flex justify-start mt-4">
                         <button type="submit" class="px-4 py-2 btn-custom">Envoyer</button>

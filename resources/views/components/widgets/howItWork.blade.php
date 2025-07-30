@@ -8,10 +8,8 @@
                         <span class="mdi mdi-book-open-page-variant text-[4rem] text-[#f2722b]"></span>
                     </div>
                     <h2 class="font-semibold">Catalogue</h2>
-                    <p class="text-center">Consultez notre catalogue d'engins mis à votre disposition pour choisir le
-                        materiel dont vous
-                        avez
-                        besoin</p>
+                    <p class="text-center">Découvrez nos engins et matériels disponibles et identifiez facilement ce dont
+                        vous avez besoin pour vos projets.</p>
                 </div>
 
                 <div class="hidden md:block">
@@ -22,13 +20,10 @@
 
                 <div class="text-sm sm:text-[1rem] flex flex-col items-center space-y-3">
                     <div class="h-[5rem] w-[5rem] rounded-lg bg-[#fff1e7] flex justify-center items-center">
-                        <span class="mdi mdi-clipboard text-[4rem] text-[#f2722b]"></span>
+                        <span class="mdi mdi-clipboard-outline text-[4rem] text-[#f2722b]"></span>
                     </div>
-                    <h2 class="font-semibold">Catalogue</h2>
-                    <p class="text-center">Consultez notre catalogue d'engins mis à votre disposition pour choisir le
-                        materiel dont vous
-                        avez
-                        besoin</p>
+                    <h2 class="font-semibold">Formulaire</h2>
+                    <p class="text-center">Complétez le formulaire en ligne en quelques minutes et envoyez-le.</p>
                 </div>
 
                 <div class="hidden md:block">
@@ -41,11 +36,9 @@
                     <div class="h-[5rem] w-[5rem] rounded-lg bg-[#fff1e7] flex justify-center items-center">
                         <span class="mdi mdi-check-circle-outline text-[4rem] text-[#f2722b]"></span>
                     </div>
-                    <h2 class="font-semibold">Catalogue</h2>
-                    <p class="text-center">Consultez notre catalogue d'engins mis à votre disposition pour choisir le
-                        materiel dont vous
-                        avez
-                        besoin</p>
+                    <h2 class="font-semibold">Retour</h2>
+                    <p class="text-center">Nos conseillers vous contactent rapidement avec votre devis personnalisé,
+                        prêt à valider et à lancer votre projet.</p>
                 </div>
             </div>
         </div>

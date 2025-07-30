@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             ContactSeeder::class,
             ServiceSeeder::class,
-            TestimonialSeeder::class
+            TestimonialSeeder::class,
+            MachineSeeder::class
         ]);
     }
 }

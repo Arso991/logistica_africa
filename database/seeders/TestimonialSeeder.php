@@ -18,13 +18,13 @@ class TestimonialSeeder extends Seeder
                 'name' => 'Hermann H.',
                 'description' => 'Bon accueil, matériel de qualité. Je recommande vivement!',
                 'status' => true,
-                'image' => 'assets/images/faces/face1.jpg',
+                'image' => 'assets/images/brand/account.png',
             ],
             [
                 'name' => 'Mathias K.',
                 'description' => 'Très bonne équipe et matériel fiable.',
                 'status' => true,
-                'image' => 'assets/images/faces/face3.jpg',
+                'image' => 'assets/images/brand/account.png',
             ],
             [
                 'name' => 'Damien A.',
@@ -36,12 +36,12 @@ class TestimonialSeeder extends Seeder
                 'name' => 'Mohamed Traoré',
                 'description' => 'Service rapide et efficace. Merci beaucoup !',
                 'status' => false,
-                'image' => 'assets/images/faces/face1.jpg',
+                'image' => 'assets/images/brand/account.png',
             ],
             [
                 'name' => 'Julie Martin',
                 'description' => 'Je suis impressionnée par la qualité du service.',
-                'status' => true,
+                'status' => false,
                 'image' => null,
             ],
         ];
