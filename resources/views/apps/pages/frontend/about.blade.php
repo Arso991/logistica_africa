@@ -7,9 +7,9 @@
 
     <section class="container mx-auto py-[2.5rem] md:py-[5rem]">
         <div class="block md:flex items-center">
-            <div class="w-full md:w-1/2 flex justify-center">
+            <div class="w-full md:w-1/2 flex justify-center reveal revealleft">
                 <div class="w-full md:w-[80%] h-[300px] overflow-hidden rounded-xl">
-                    <img src="{{ asset($about->mission_image) }}" class="w-full h-full object-cover" alt="Image">
+                    <img src="{{ asset($about->mission_image) }}" class="w-full h-full object-contain" alt="Image">
                 </div>
             </div>
             <div class="space-y-4 w-full md:w-1/2 mt-[2rem] md:mt-0">
@@ -29,8 +29,8 @@
                         <div
                             class="space-y-4 flex flex-col items-center p-4 rounded-md border border-transparent hover:border-gray-200">
                             <div class="w-[8rem] h-[8rem] overflow-hidden rounded-full bg-white p-2">
-                                <img src="{{ asset('assets/images/svgs/Logistics-cuate.svg') }}"
-                                    class="w-full h-full object-contain" alt="Icon">
+                                <img src="{{ asset($item->image ?? 'assets/images/svgs/Logistics-cuate.svg') }}"
+                                    class="w-full h-full object-cover rounded-full " alt="Icon">
                             </div>
                             <div class="text-sm sm:text-[1rem] text-center space-y-2 leading-7">
                                 <h2 class="font-semibold">{{ $item->title }}</h2>

@@ -14129,17 +14129,20 @@ a.icon:hover {
     box-sizing: border-box;
 }
 
-#back-to-top {
-    color: #fff;
+/* #back-to-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 99;
-    display: none;
+    z-index: 20;
     text-align: center;
     z-index: 10000;
     height: 50px;
     width: 50px;
+    background-color:red;
     background-repeat: no-repeat;
     background-position: center;
     transition: background-color 0.1s linear;
@@ -14150,13 +14153,12 @@ a.icon:hover {
 }
 
 #back-to-top i {
-    padding-top: 15px;
-    font-size: 16px;
+    font-size: 30px;
 }
 
 #back-to-top:hover {
     background: #fff !important;
-}
+} */
 
 .features {
     overflow: hidden;

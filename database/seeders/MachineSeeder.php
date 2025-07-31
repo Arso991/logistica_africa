@@ -18,22 +18,22 @@ class MachineSeeder extends Seeder
             [
                 'name' => 'Terrassement',
                 'description' => 'Découvrez nos machines de terrasement',
-                'image' => 'assets/images/brand/machine4.jpg',
+                'image' => 'assets/images/machine/compacteur.png',
             ],
             [
                 'name' => 'Levage',
                 'description' => 'Découvrez nos machines de levage',
-                'image' => 'assets/images/brand/machine4.jpg',
+                'image' => 'assets/images/machine/tractopelle.png',
             ],
             [
                 'name' => 'Transport',
                 'description' => 'Découvrez nos machines de transport',
-                'image' => 'assets/images/brand/machine4.jpg',
+                'image' => 'assets/images/machine/12roues.png',
             ],
             [
                 'name' => 'Équipements complémentaires',
                 'description' => 'Découvrez nos équipements complémentaires',
-                'image' => 'assets/images/brand/machine4.jpg',
+                'image' => 'assets/images/machine/auto-betonniere.png',
             ],
         ];
 

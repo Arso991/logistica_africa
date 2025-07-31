@@ -19,13 +19,62 @@
 
   // BACK TO TOP BUTTON
   $(window).on("scroll", function (e) {
-    if ($(this).scrollTop() > 0) {
-      $("#back-to-top").fadeIn("slow");
+    if ($(this).scrollTop() > 2) {
+      $("#whatsapp-btn").removeClass('hidden').addClass('flex');
     } else {
-      $("#back-to-top").fadeOut("slow");
+      $("#whatsapp-btn").addClass("hidden").removeClass('flex');
+      $("#whatsapp-popup").hide(); // Ferme le popup si l'utilisateur remonte
     }
   });
-  $(document).on("click", "#back-to-top", function (e) {
+
+  //Whatsapp popup
+  $(document).ready(function () {
+    const whatsappNumber = "2290148655555"; // Remplace avec ton numéro
+
+    $("#whatsapp-btn").on("click", function () {
+      $("#whatsapp-popup").fadeToggle("fast");
+    });
+
+    $("#send-whatsapp").on("click", function () {
+      const message = $("#whatsapp-message").val().trim();
+
+      let finalMessage = message !== ""
+        ? message
+        : "Bonjour, je souhaite avoir plus d'informations sur vos services.";
+
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(finalMessage)}`;
+      window.open(url, '_blank');
+    });
+
+    // Cacher le popup si on clique en dehors
+    $(document).on("click", function (e) {
+      if (!$(e.target).closest('#whatsapp-popup, #whatsapp-btn').length) {
+        $("#whatsapp-popup").fadeOut("fast"); // Masquer le popup
+        $("#whatsapp-message").val(""); // Vider le champ message
+      }
+    });
+  });
+
+  //Cookies saving
+  $(document).ready(function () {
+    // Vérifie si le cookie a été accepté
+    if (localStorage.getItem('cookiesAccepted')) {
+      $('#cookie-popup').hide();
+    }
+
+    $('#accept-cookies').on('click', function () {
+      localStorage.setItem('cookiesAccepted', 'true');
+      $('#cookie-popup').fadeOut();
+      // Ici, tu peux déclencher l'activation des cookies si besoin
+    });
+
+    $('#decline-cookies').on('click', function () {
+      $('#cookie-popup').fadeOut();
+      // Ici, tu peux gérer le refus (désactivation des cookies, etc)
+    });
+  });
+
+  /* $(document).on("click", "#back-to-top", function (e) {
     $("html, body").animate(
       {
         scrollTop: 0,
@@ -33,7 +82,7 @@
       0
     );
     return false;
-  });
+  }); */
 
   $(".testimonial-carousel").slick({
     slidesToShow: 1,
@@ -283,7 +332,7 @@
   // Initialize the map
   if (window.location.pathname === "/contact") {
 
-    let address = "Fiyegnon, Cotonou, Bénin"; // exemple : "Cotonou, Bénin"
+    let address = "Cotonou, Bénin"; // exemple : "Cotonou, Bénin"
 
     fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}`)
       .then(response => response.json())
@@ -359,7 +408,7 @@
 
 
 // FOOTER
-document.getElementById("year").innerHTML = new Date().getFullYear();
+//document.getElementById("year").innerHTML = new Date().getFullYear();
 
 window.addEventListener("scroll", reveal);
 

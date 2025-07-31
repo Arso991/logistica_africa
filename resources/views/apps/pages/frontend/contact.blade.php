@@ -14,7 +14,7 @@
                     </div>
                     <div class="space-y-2 text-sm sm:text-[1rem] text-center">
                         <p class="font-semibold">Email</p>
-                        <p>contact@example.com</p>
+                        <p>contact@logisticafrica.com</p>
                     </div>
                 </div>
 
@@ -24,8 +24,7 @@
                     </div>
                     <div class="space-y-2 text-sm sm:text-[1rem] text-center">
                         <p class="font-semibold">Téléphone</p>
-                        <p>+33 1 23 45 67 89</p>
-                        <p>+33 1 23 45 67 89</p>
+                        <p>+229 0148655555</p>
                     </div>
                 </div>
 
@@ -36,7 +35,7 @@
                     <div class="space-y-2 text-sm sm:text-[1rem] text-center">
                         <p class="font-semibold">Adresse</p>
                         <p>Cotonou, Bénin</p>
-                        <p>Abidjan, Côte d'Ivoire</p>
+                        {{-- <p>Abidjan, Côte d'Ivoire</p> --}}
                     </div>
                 </div>
             </div>

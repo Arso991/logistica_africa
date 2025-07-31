@@ -2,19 +2,22 @@
 <div class="container mx-auto max-h-10 py-2 flex items-center justify-between space-x-2 ">
     <div class="hidden md:flex items-center gap-2">
         <span class="text-xl mdi mdi-phone"></span>
-        <p class="italic"> Contactez-nous au : 01 000 000 000</p>
+        <span class="italic"> Contactez-nous au : +229 0148655555</span>
     </div>
-    <div class="relative">
-        <form action="{{ route('view.catalog') }}" method="GET">
-            @csrf
-            <input value="{{ request('search') }}" name="search"
-                class="rounded-xl border-gray-200 focus:outline-none border py-1 px-4 outline-none w-full" type="text"
-                placeholder="Rechercher un materiel...">
-            <button onclick="this.form.submit()"
-                class="absolute z-30 inset-y-0 right-0 flex items-center pr-2 cursor-pointer">
-                <span class="mdi mdi-magnify text-xl text-[#f2722b]"></span>
-            </button>
-        </form>
+
+    <div class="w-full md:w-1/3">
+        <div class="relative">
+            <form action="{{ route('view.catalog') }}" method="GET">
+                @csrf
+                <input value="{{ request('search') }}" name="search"
+                    class="rounded-xl border-gray-200 focus:outline-none border py-1 px-6 outline-none w-full md:w-[250px]"
+                    type="text" placeholder="Rechercher un materiel...">
+                <button onclick="this.form.submit()"
+                    class="absolute left-1 z-30 inset-y-0 flex items-center pr-2 cursor-pointer">
+                    <span class="mdi mdi-magnify text-xl text-[#f2722b]"></span>
+                </button>
+            </form>
+        </div>
     </div>
     <div class="flex items-center gap-3">
         <a target="_blank" href="#" class="hover:text-[#f2722b]">
@@ -83,23 +86,23 @@
 
             <ul class="flex flex-col gap-[1.5rem]">
                 <li>
-                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300"
+                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('/') ? 'font-medium text-[#f2722b]' : '' }}"
                         href="{{ route('view.home') }}">Accueil</a>
                 </li>
                 <li>
-                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300"
+                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('about') ? 'font-medium text-[#f2722b]' : '' }}"
                         href="{{ route('view.about') }}">A propos</a>
                 </li>
                 <li>
-                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300"
+                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('catalog') || Request::is('detail*') || Request::is('devis*') || Request::is('congrats*') || Request::is('search*') ? 'font-medium text-[#f2722b]' : '' }}"
                         href="{{ route('view.catalog') }}">Catalogue</a>
                 </li>
                 <li>
-                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300"
+                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('posts') || Request::is('post*') ? 'font-medium text-[#f2722b]' : '' }}"
                         href="{{ route('view.posts') }}">Actualités</a>
                 </li>
                 <li>
-                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300"
+                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('contact') ? 'font-medium text-[#f2722b]' : '' }}"
                         href="{{ route('view.contact') }}">Contacts</a>
                 </li>
             </ul>
