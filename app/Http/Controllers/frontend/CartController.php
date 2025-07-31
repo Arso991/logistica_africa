@@ -110,13 +110,13 @@ class CartController extends Controller
                 } else {
                     // Si la quantité est 1, on retire le produit du panier
                     unset($cart[$productId]);
-                    return redirect()->back()->with('success', 'Produit retiré du panier avec succès !');
+                    return redirect()->back();
                 }
             }
 
             session()->put('cart', $cart); // Mettre à jour le panier dans la session
 
-            return redirect()->back()->with('success', 'Quantité diminuée avec succès');
+            return redirect()->back();
         } catch (\Exception $e) {
             Log::error('Erreur lors de la mise à jour : ' . $e->getMessage());
             return redirect()->back()->with('error', 'Une erreur est survenue lors de la mise à jour. Veuillez reéssayer.');
@@ -137,7 +137,7 @@ class CartController extends Controller
 
             session()->put('cart', $cart); // Mettre à jour le panier dans la session
 
-            return redirect()->route('view.devis')->with('success', 'Quantité augmentée avec succès');
+            return redirect()->route('view.devis');
         } catch (\Exception $e) {
             Log::error('Erreur lors de la mise à jour : ' . $e->getMessage());
             return redirect()->back()->with('error', 'Une erreur est survenue lors de la mise à jour. Veuillez reéssayer.');

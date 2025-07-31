@@ -7,7 +7,7 @@
 
     <section class="container mx-auto py-[2.5rem] md:py-[5rem]">
         <div class="block md:flex items-center">
-            <div class="w-full md:w-1/2 flex justify-center">
+            <div class="w-full md:w-1/2 flex justify-center reveal revealleft">
                 <div class="w-full md:w-[80%] h-[300px] overflow-hidden rounded-xl">
                     <img src="{{ asset($about->mission_image) }}" class="w-full h-full object-cover" alt="Image">
                 </div>

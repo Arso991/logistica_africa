@@ -24,7 +24,7 @@
             </p>
         </div> --}}
         @foreach ($services as $item)
-            <div class="relative h-[350px] rounded-lg shadow-lg overflow-hidden group">
+            <div class="relative h-[350px] rounded-lg shadow-lg overflow-hidden group reveal">
 
                 <!-- Image de fond + filtre noir -->
                 <div class="absolute inset-0 bg-cover bg-center"

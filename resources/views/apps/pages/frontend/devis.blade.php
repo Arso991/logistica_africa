@@ -82,7 +82,7 @@
                         @endforeach
                     </div>
                 @else
-                    <h1 class="text-center text-sm sm:text-[1rem]">Pas de machine selectionnée. Vous pouvez choisir la
+                    <h1 class="text-center text-sm sm:text-[1rem]">Pas de machine selectionnée. Vous pouvez choisir une
                         machine
                         pour une demande de devis <a class="text-blue-700 hover:underline"
                             href="{{ route('view.catalog') }}">ici</a> </h1>
