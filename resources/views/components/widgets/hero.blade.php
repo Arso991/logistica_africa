@@ -6,8 +6,8 @@
         <div class="absolute inset-y-0 left-0 w-full flex items-center">
             <div class="container mx-auto">
                 <div class="w-full md:w-1/2 text-white text-lg md:text-xl text-center md:text-start">
-                    <h1 class="text-xl md:text-3xl font-bold mb-[1rem] uppercase">{{ $banner->title }}</h1>
-                    <p>{{ $banner->subtitle }}</p>
+                    <h1 class="text-xl md:text-2xl font-bold mb-[1rem] uppercase">{{ $banner->title }}</h1>
+                    <p class="text-sm sm:text-[1rem] leading-7">{{ $banner->subtitle }}</p>
                 </div>
             </div>
         </div>
@@ -17,10 +17,6 @@
             @foreach (json_decode($banner->carrousel_images) as $image)
                 <img src="{{ asset($image) }}" class="w-full h-full object-cover" alt="Carrousel">
             @endforeach
-            {{--             <img src="{{ asset('assets/images/brand/machine2.jpg') }}" class="w-full h-full object-cover"
-                alt="">
-            <img src="{{ asset('assets/images/brand/machine4.jpg') }}" class="w-full h-full object-cover"
-                alt=""> --}}
         </div>
     </div>
 </section>
