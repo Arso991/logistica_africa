@@ -22,12 +22,13 @@ class ServiceSeeder extends Seeder
             [
                 'title' => 'Travaux de Terrassement',
                 'description' => 'Du déblaiement au remblaiement, en passant par la préparation de plateformes et le modelage de terrains, nous réalisons vos travaux de terrassement avec rigueur et expertise. Notre équipe et nos engins garantissent un travail rapide, précis et conforme aux exigences de vos projets.',
-                'image' => 'assets/images/brand/machine2.jpg',
+                'image' => 'assets/images/brand/transport.jpg',
             ],
             [
                 'title' => 'Transport de granulats et matériaux',
                 'description' => 'Besoin d\'acheminer sable, gravier, latérite ou autres matériaux ? Logistica Africa assure le transport de granulats dans les délais, avec des camions adaptés et un service fiable. Simplifiez la logistique de vos approvisionnements et optimisez vos chantiers.',
-                'image' => 'assets/images/brand/machine3.jpg',
+                'image' => 'assets/images/brand/machine2.jpg',
+
             ],
             [
                 'title' => 'Marketing Digital',

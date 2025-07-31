@@ -86,23 +86,23 @@
 
             <ul class="flex flex-col gap-[1.5rem]">
                 <li>
-                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300"
+                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('/') ? 'font-medium text-[#f2722b]' : '' }}"
                         href="{{ route('view.home') }}">Accueil</a>
                 </li>
                 <li>
-                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300"
+                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('about') ? 'font-medium text-[#f2722b]' : '' }}"
                         href="{{ route('view.about') }}">A propos</a>
                 </li>
                 <li>
-                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300"
+                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('catalog') || Request::is('detail*') || Request::is('devis*') || Request::is('congrats*') || Request::is('search*') ? 'font-medium text-[#f2722b]' : '' }}"
                         href="{{ route('view.catalog') }}">Catalogue</a>
                 </li>
                 <li>
-                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300"
+                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('posts') || Request::is('post*') ? 'font-medium text-[#f2722b]' : '' }}"
                         href="{{ route('view.posts') }}">Actualités</a>
                 </li>
                 <li>
-                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300"
+                    <a class="text-[1rem]  hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('contact') ? 'font-medium text-[#f2722b]' : '' }}"
                         href="{{ route('view.contact') }}">Contacts</a>
                 </li>
             </ul>

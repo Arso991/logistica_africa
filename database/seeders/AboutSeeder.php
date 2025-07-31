@@ -18,29 +18,29 @@ class AboutSeeder extends Seeder
             'about_text' => 'Créée en décembre 2022, Logistica Africa est spécialisée dans l\'optimisation logistique des projets de génie civil et des chantiers de construction.
                             Notre mission : accompagner les entreprises du BTP en leur fournissant des solutions logistiques fiables, efficaces et sur mesure, parfaitement adaptées aux exigences techniques et aux contraintes de leurs projets.
                             Grâce à notre expertise du terrain, notre réactivité et notre maîtrise opérationnelle, nous contribuons chaque jour à la réussite des chantiers de nos clients.',
-            'about_image' => 'assets/images/brand/machine1.jpg',
+            'about_image' => 'assets/images/brand/about.jpg',
             'mission_text' => 'Être le partenaire terrain des entreprises du BTP, en leur fournissant des engins et matériels robustes, fiables et adaptés à leurs réalités quotidiennes.
                             Chez Logistica Bénin, on facilite vos chantiers avec des engins performants, une équipe terrain experte, et un service toujours prêt à intervenir.',
-            'mission_image' => 'assets/images/brand/machine1.jpg'
+            'mission_image' => 'assets/images/brand/men.png'
         ]);
 
         $values = [
             [
                 'title' => 'Fiabilité',
                 'description' => 'Des engins et matériels contrôlés, entretenus et prêts à l’action, pour que vos chantiers avancent sans coupure ni surprise.',
-                'image' => 'assets/images/brand/1.png',
+                'image' => 'assets/images/brand/fiabilité.png',
                 'status' => true,
             ],
             [
                 'title' => 'Réactivité',
                 'description' => 'Vos projets n’attendent pas. Notre équipe organise rapidement la mise à disposition de vos engins sur chantier.',
-                'image' => 'assets/images/brand/1.png',
+                'image' => 'assets/images/brand/reactivité.jpg',
                 'status' => true,
             ],
             [
                 'title' => 'Engagement',
                 'description' => 'On est à vos côtés du début à la fin, avec un service sur mesure qui colle vraiment à vos besoins en matériel et logistique.',
-                'image' => 'assets/images/brand/1.png',
+                'image' => 'assets/images/brand/engament.jpg',
                 'status' => true,
             ],
             [

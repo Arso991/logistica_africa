@@ -35,7 +35,7 @@
                     <div class="space-y-2 text-sm sm:text-[1rem] text-center">
                         <p class="font-semibold">Adresse</p>
                         <p>Cotonou, Bénin</p>
-                        <p>Abidjan, Côte d'Ivoire</p>
+                        {{-- <p>Abidjan, Côte d'Ivoire</p> --}}
                     </div>
                 </div>
             </div>

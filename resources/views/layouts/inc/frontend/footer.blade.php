@@ -83,7 +83,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <span class="mdi mdi-map-marker text-xl"></span>
-                    <span>Cotonou - Bénin / Abidjan - Côte d'Ivoire</span>
+                    <span>Cotonou - Bénin {{-- / Abidjan - Côte d'Ivoire --}}</span>
                 </div>
             </div>
             <div class="flex items-center gap-1 mt-2 sm:mt-0">
