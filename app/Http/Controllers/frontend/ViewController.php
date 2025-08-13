@@ -7,6 +7,7 @@ use App\Models\About;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Machine;
+use App\Models\Partner;
 use App\Models\Post;
 use App\Models\Service;
 use App\Models\Value;
@@ -21,8 +22,9 @@ class ViewController extends Controller
         $services = Service::where('status', true)->get();
         $categories = Category::latest()->get();
         $machines = Machine::limit(4)->get();
+        $partners = Partner::where('status', true)->get();
 
-        return view('apps.pages.frontend.index', compact('banner', 'about', 'services', 'categories', 'machines'));
+        return view('apps.pages.frontend.index', compact('banner', 'about', 'services', 'categories', 'machines', 'partners'));
     }
 
     public function about()

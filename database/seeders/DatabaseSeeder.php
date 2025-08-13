@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
             ServiceSeeder::class,
             TestimonialSeeder::class,
-            MachineSeeder::class
+            MachineSeeder::class,
+            PartnerSeeder::class,
         ]);
     }
 }

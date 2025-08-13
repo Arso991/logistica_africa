@@ -4,16 +4,13 @@
     </div>
 
     <div class="py-5">
-        <div id="partner-carroussel" class="container mx-auto flex justify-center h-[50px] gap-2">
-            <img src="{{ asset('assets/images/logos/sponsor1.png') }}" class="mx-4 w-16 object-contain" alt="Partner Logo">
-            <img src="{{ asset('assets/images/logos/sponsor2.png') }}" class="mx-4 w-16 object-contain"
-                alt="Partner Logo">
-            <img src="{{ asset('assets/images/logos/sponsor3.png') }}" class="mx-4 w-16 object-contain"
-                alt="Partner Logo">
-            <img src="{{ asset('assets/images/logos/sponsor4.png') }}" class="mx-4 w-16 object-contain"
-                alt="Partner Logo">
-            <img src="{{ asset('assets/images/logos/sponsor5.png') }}" class="mx-4 w-16 object-contain"
-                alt="Partner Logo">
-        </div>
+        @if ($partners)
+            <div id="partner-carroussel" class="container mx-auto flex justify-center h-[50px] gap-2">
+                @foreach ($partners as $item)
+                    <img src="{{ asset($item->image ?? 'assets/images/logos/sponsor1.png') }}"
+                        class="mx-4 w-16 object-contain" alt="Partner Logo">
+                @endforeach
+            </div>
+        @endif
     </div>
 </section>
