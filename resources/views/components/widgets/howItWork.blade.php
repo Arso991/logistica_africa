@@ -1,4 +1,4 @@
-<section class="container mx-auto py-[2.5rem] md:py-[5rem] ">
+<section class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem] ">
     <div class="space-y-4 md:space-y-6">
         <h1 class="text-lg md:text-xl font-semibold text-[#f2722b] text-center">Comment ça marche</h1>
         <div class="flex justify-center">

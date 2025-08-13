@@ -34,9 +34,9 @@
                 </li>
 
                 <li class="slide">
-                    <a class="side-menu__item has-link " data-bs-toggle="slide"
-                        href="{{ route('panel.users.index') }}"><i class="side-menu__icon mdi mdi-factory"></i><span
-                            class="side-menu__label">Engins</span></a>
+                    <a class="side-menu__item has-link {{ Request::is('panel/machines') ? 'active' : '' }}"
+                        data-bs-toggle="slide" href="{{ route('panel.machines.index') }}"><i
+                            class="side-menu__icon mdi mdi-factory"></i><span class="side-menu__label">Engins</span></a>
                 </li>
 
                 <li class="slide">

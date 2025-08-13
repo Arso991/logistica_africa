@@ -1,14 +1,25 @@
 <section>
-    <div style="background:url('{{ asset('assets/images/brand/breadcumb-bg.jpg') }}') center; background-repeat: no-repeat; background-size: cover;"
-        class="h-[150px] max-h-auto relative">
-        <div class="h-full w-full bg-black opacity-50"></div>
+    <div class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto mt-9">
+        @if ($breadcrumbs)
+            <ul class="flex flex-wrap text-lg md:text-xl">
+                @foreach ($breadcrumbs as $breadcrumb)
+                    <li class="flex items-center text-sm">
+                        @if ($breadcrumb['url'])
+                            <a href="{{ $breadcrumb['url'] }}" class="hover:underline">
+                                {{ $breadcrumb['label'] }}
+                            </a>
+                        @else
+                            <span class="">
+                                {{ $breadcrumb['label'] }}
+                            </span>
+                        @endif
 
-        <div class="absolute inset-y-0 w-full flex items-center">
-            <div class="container mx-auto">
-                <div class="w-full text-white text-lg md:text-xl text-center">
-                    <h1 class="text-xl md:text-2xl font-bold mt-[2rem]">{{ $pageTitle }}</h1>
-                </div>
-            </div>
-        </div>
+                        @if (!$loop->last)
+                            <span class="mx-1">></span>
+                        @endif
+                    </li>
+                @endforeach
+            </ul>
+        @endif
     </div>
 </section>

@@ -1,40 +1,46 @@
 <!-- app-Header -->
-<div class="container mx-auto max-h-10 py-2 flex items-center justify-between space-x-2 ">
-    <div class="hidden md:flex items-center gap-2">
-        <span class="text-xl mdi mdi-phone"></span>
-        <span class="italic"> Contactez-nous au : +229 0148655555</span>
-    </div>
-
-    <div class="w-full md:w-1/3">
-        <div class="relative">
-            <form action="{{ route('view.catalog') }}" method="GET">
-                @csrf
-                <input value="{{ request('search') }}" name="search"
-                    class="rounded-xl border-gray-200 focus:outline-none border py-1 px-6 outline-none w-full md:w-[250px]"
-                    type="text" placeholder="Rechercher un materiel...">
-                <button onclick="this.form.submit()"
-                    class="absolute left-1 z-30 inset-y-0 flex items-center pr-2 cursor-pointer">
-                    <span class="mdi mdi-magnify text-xl text-[#f2722b]"></span>
-                </button>
-            </form>
-        </div>
-    </div>
-    <div class="flex items-center gap-3">
-        <a target="_blank" href="#" class="hover:text-[#f2722b]">
-            <span class="text-xl mdi mdi-facebook"></span>
-        </a>
-
-        <a target="_blank" href="#" class="hover:text-[#f2722b]">
-            <span class="text-xl mdi mdi-linkedin"></span>
-        </a>
-    </div>
-</div>
-<div id="navbar" class="h-18 fixed py-[0.5rem] left-0 right-0 backdrop-blur-sm z-50 flex items-center shadow-sm">
-    <div class="container mx-auto flex items-center justify-between">
-        <div class="w-[6rem] md:w-[8rem] h-[4rem] -mb-[1rem]">
+<div class=" bg-gray-200 h-[100px] w-full">
+    <div
+        class="container px-[.5rem] md:px-[0px] lg:px-[3rem] w-full h-full mx-auto flex items-center justify-between gap-4">
+        <div class="w-[6rem] md:w-[8rem] h-[4rem] -mb-[1rem] hidden md:block">
             <img src="{{ asset('assets/images/brand/logo.png') }}" alt="Logo" class="w-full h-full object-contain ">
         </div>
-        <ul id="menu-list" class="hidden md:flex items-center gap-4 text-lg text-[#ffffff]">
+
+        <div class="w-full flex justify-start md:w-1/3">
+            <div class="relative w-full">
+                <form action="{{ route('view.catalog') }}" method="GET">
+                    @csrf
+                    <input value="{{ request('search') }}" name="search"
+                        class="rounded-2xl border-gray-200 focus:outline-none border py-3 px-6 outline-none w-full shadow-xl"
+                        type="text" placeholder="Rechercher un materiel...">
+                    <button onclick="this.form.submit()"
+                        class="absolute left-2 z-30 inset-y-0 flex items-center pr-2 cursor-pointer">
+                        <span class="mdi mdi-magnify text-xl text-[#f2722b]"></span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <a target="_blank" href="https://web.facebook.com/logisticaafrica" class="hover:text-[#f2722b]">
+                <span class="text-xl mdi mdi-facebook"></span>
+            </a>
+
+            <a target="_blank" href="https://www.linkedin.com/company/logisticafrica/" class="hover:text-[#f2722b]">
+                <span class="text-xl mdi mdi-linkedin"></span>
+            </a>
+        </div>
+    </div>
+
+</div>
+<div id="navbar" class="h-18 absolute py-[0.5rem] left-0 right-0 backdrop-blur-sm z-50 flex items-center shadow-sm">
+    <div class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto flex items-center justify-between">
+        <div class="w-[6rem] md:w-[8rem] h-[4rem] -mb-[1rem] block md:hidden">
+            <img src="{{ asset('assets/images/brand/logo-blanc.png') }}" alt="Logo"
+                class="w-full h-full object-contain transition ease-out duration-300 logo1">
+            <img src="{{ asset('assets/images/brand/logo.png') }}" alt="Logo"
+                class="w-full h-full object-contain hidden transition ease-out duration-300 logo2">
+        </div>
+        <ul id="menu-list" class="hidden md:flex items-center gap-8 text-[#ffffff] uppercase">
             <li>
                 <a href="{{ route('view.home') }}"
                     class="hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('/') ? 'font-medium text-[#f2722b]' : '' }}">Accueil</a>
@@ -78,11 +84,6 @@
                     <i class="mdi mdi-close text-2xl font-medium"></i>
                 </a>
             </div>
-
-            {{-- <div class="w-[10rem] h-[10rem] overflow-hidden">
-                <img src="{{ asset('assets/images/brand/logo3.png') }}"
-                    class="w-full h-full object-cover -ml-[2rem] -mt-[2rem]" alt="">
-            </div> --}}
 
             <ul class="flex flex-col gap-[1.5rem]">
                 <li>

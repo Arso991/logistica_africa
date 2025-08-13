@@ -3,7 +3,7 @@
 @section('title', 'A propos')
 
 @section('content')
-    @include('components.widgets.breadcrumb', ['pageTitle' => 'A propos'])
+    @include('components.widgets.breadcrumb')
 
     <section class="container mx-auto py-[2.5rem] md:py-[5rem]">
         <div class="block md:flex items-center">
@@ -32,9 +32,9 @@
                                 <img src="{{ asset($item->image ?? 'assets/images/svgs/Logistics-cuate.svg') }}"
                                     class="w-full h-full object-cover rounded-full " alt="Icon">
                             </div>
-                            <div class="text-sm sm:text-[1rem] text-center space-y-2 leading-7">
-                                <h2 class="font-semibold">{{ $item->title }}</h2>
-                                <p>{{ $item->description }}</p>
+                            <div class="text-sm sm:text-[1rem] space-y-2 leading-7">
+                                <h2 class="font-semibold text-center uppercase">{{ $item->title }}</h2>
+                                <p class="text-left md:text-center">{{ $item->description }}</p>
                             </div>
                         </div>
                     @endforeach

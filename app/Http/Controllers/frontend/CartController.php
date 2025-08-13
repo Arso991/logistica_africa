@@ -146,19 +146,38 @@ class CartController extends Controller
 
     public function cartsave(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
-            'client_firstname' => ['required', 'string', 'max:255'],
-            'client_lastname'  => ['required', 'string', 'max:255'],
-            'client_email'     => ['required', 'email', 'max:255'],
-            'client_phone'     => ['nullable', 'string', 'max:20'],
-            'client_company'   => ['nullable', 'string', 'max:255'],
-            'client_role'      => ['nullable', 'string', 'max:255'],
-            'motif'            => ['nullable', 'string'],
+            'company_name' => ['required', 'string', 'max:255'],
+            'representative_name' => ['required', 'string', 'max:255'],
+            'usage_location' => ['required', 'string', 'max:255'],
+            'usage_duration' => ['required', 'integer', 'min:1'],
+            'email' => ['required', 'email', 'max:255'],
+            'gsm_number' => ['required', 'string', 'regex:/^\+?[0-9]{6,15}$/'],
+            'whatsapp_number' => ['nullable', 'string', 'regex:/^\+?[0-9]{6,15}$/'],
+            'mobilization_date' => ['required', 'date'],
+            'additional_details' => ['nullable', 'string', 'max:1000'],
         ], [
-            'client_firstname.required' => 'Le prénom est requis.',
-            'client_lastname.required'  => 'Le nom est requis.',
-            'client_email.required'     => 'L\'adresse email est requise.',
-            'client_email.email'        => 'L\'adresse email est invalide.',
+            'company_name.required' => 'Le nom de l\'entreprise est obligatoire.',
+
+            'representative_name.required' => 'Le nom du représentant est obligatoire.',
+
+            'usage_duration.required' => 'La durée de location est obligatoire.',
+            'usage_duration.integer' => 'La durée doit être un nombre entier.',
+            'usage_duration.min' => 'La durée doit être au moins de 1 jour.',
+
+            'usage_location.required' => 'Le lieu d\'utilisation de(s) l\'engin(s) est obligatoire.',
+
+            'email.required' => 'L\'adresse email est obligatoire.',
+            'email.email' => 'Veuillez entrer une adresse email valide.',
+
+            'gsm_number.required' => 'Le contact GSM est obligatoire.',
+            'gsm_number.regex' => 'Veuillez entrer un numéro GSM valide avec l\'indicatif.',
+
+            'whatsapp_number.regex' => 'Veuillez entrer un numéro WhatsApp valide avec l\'indicatif.',
+
+            'mobilization_date.required' => 'La date de mobilisation souhaitée est obligatoire.',
+            'mobilization_date.date' => 'Veuillez entrer une date valide.',
         ]);
 
         if ($validator->fails()) {
@@ -172,12 +191,14 @@ class CartController extends Controller
             $cart = session()->get('cart') ?? [];
 
             $mailData = [
-                'client_lastname' => Str::title($request->client_lastname),
-                'client_firstname' => Str::title($request->client_firstname),
-                'client_email' => $request->client_email,
-                'client_phone' => $request->client_phone,
-                'client_company' => $request->client_company,
-                'client_role' => $request->client_role,
+                'company_name' => Str::title($request->company_name),
+                'representative_name' => Str::title($request->representative_name),
+                'usage_duration' => $request->usage_duration,
+                'email' => $request->email,
+                "usage_location" => $request->usage_location,
+                'gsm_number' => $request->gsm_number,
+                'whatsapp_number' => $request->whatsapp_number,
+                'mobilization_date' => $request->mobilization_date,
                 'cart' => $cart,
                 'ip' => $request->ip(),
             ];
@@ -190,13 +211,15 @@ class CartController extends Controller
                 "devis_no" => $this->generateCode(),
                 "status" => true,
                 'price' => array_sum(array_column($cart, 'total')),
-                'client_lastname' => Str::title($request->client_lastname),
-                'client_firstname' => Str::title($request->client_firstname),
-                'client_email' => $request->client_email,
-                'client_phone' => $request->client_phone,
-                'client_company' => $request->client_company,
-                'client_role' => $request->client_role,
-                'motif' => $request->motif,
+                'company_name' => Str::title($request->company_name),
+                'representative_name' => Str::title($request->representative_name),
+                'usage_duration' => $request->usage_duration,
+                'usage_location' => $request->usage_location,
+                'email' => $request->email,
+                'gsm_number' => $request->gsm_number,
+                'whatsapp_number' => $request->whatsapp_number,
+                'mobilization_date' => $request->mobilization_date,
+                'additional_details' => $request->additional_details,
             ]);
 
             foreach ($cart as $item) {
