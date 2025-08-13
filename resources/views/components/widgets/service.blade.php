@@ -1,4 +1,5 @@
-<section id="services" class="container mx-auto pb-[2.5rem] md:pb-[5rem] space-y-4 md:space-y-6">
+<section id="services"
+    class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto pb-[2.5rem] md:pb-[5rem] space-y-4 md:space-y-6">
     @include('components.widgets.title', ['title' => 'Nos services'])
 
     <div class="flex justify-center">

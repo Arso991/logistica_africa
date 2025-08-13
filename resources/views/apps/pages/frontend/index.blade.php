@@ -13,6 +13,8 @@
 
     @include('components.widgets.featuredMachines')
 
+    @include('components.widgets.partner')
+
     @include('components.widgets.category')
 
     @include('components.widgets.testimonial')

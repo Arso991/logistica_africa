@@ -15,14 +15,15 @@ class OrderDevis extends Model
         'devis_no',
         'price',
         'status',
-        'status',
-        'motif',
-        'client_firstname',
-        'client_lastname',
-        'client_email',
-        'client_phone',
-        'client_company',
-        'client_role'
+        'company_name',
+        'representative_name',
+        'usage_duration',
+        'usage_location',
+        'email',
+        'gsm_number',
+        'whatsapp_number',
+        'mobilization_date',
+        'additional_details'
     ];
 
     protected $table = 'order_devis';

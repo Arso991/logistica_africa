@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\backend\ContactController;
+use App\Http\Controllers\backend\MachineController;
 use App\Http\Controllers\backend\PostController;
 use App\Http\Controllers\backend\ServiceController;
 use App\Http\Controllers\backend\TestimonialController;
@@ -65,6 +66,11 @@ Route::prefix('panel')->name('panel.')->group(function () {
     Route::get('/testimonials/{id}',                    [TestimonialController::class, 'store'])->name('testimonials.store');
     Route::put('/testimonials/{id}',                    [TestimonialController::class, 'update'])->name('testimonials.update');
     Route::delete('/testimonials/{id}',                 [TestimonialController::class, 'destroy'])->name('testimonials.destroy');
+
+    Route::get('/machines',                         [MachineController::class, 'index'])->name('machines.index');
+    Route::get('/machines/{id}',                    [MachineController::class, 'store'])->name('machines.store');
+    Route::put('/machines/{id}',                    [MachineController::class, 'update'])->name('machines.update');
+    Route::delete('/machines/{id}',                 [MachineController::class, 'destroy'])->name('machines.destroy');
 });
 
 Route::get('/run-setup', function () {

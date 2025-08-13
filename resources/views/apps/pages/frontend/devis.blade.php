@@ -3,12 +3,10 @@
 @section('title', 'Demande de devis')
 
 @section('content')
-    @include('components.widgets.breadcrumb', [
-        'pageTitle' => 'Demande de devis',
-    ])
+    @include('components.widgets.breadcrumb')
 
 
-    <section class="container mx-auto py-[2.5rem] md:py-[5rem]">
+    <section class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
         <div class="border rounded-md p-5">
             <!-- Onglets -->
             <div class="flex justify-center mb-6 space-x-4">
@@ -93,58 +91,98 @@
                 </div>
             </div>
             <div class="hidden" id="form-section">
-                <h2 class="text-sm sm:text-[1rem] text-center font-semibold mb-6">Informations</h2>
+                <h2 class="text-sm sm:text-[1rem] text-center font-semibold mb-2">Informations</h2>
+                <p class="text-center mb-6">Pour demander un devis veuillez svp nous donner quelques détails</p>
                 <form action="{{ route('cart.save') }}" method="POST" class="space-y-4">
                     @csrf
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Nom entreprise -->
                         <div class="flex flex-col space-y-1">
-                            <label for="client_lastname">Nom <span class="text-red-500">*</span></label>
-                            <input type="text" id="client_lastname" placeholder="Veuillez entrer le nom"
-                                name="client_lastname" value="{{ old('client_lastname') }}"
-                                class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
+                            <label for="company_name">Nom de l'entreprise <span class="text-red-500">*</span></label>
+                            <input type="text" id="company_name" name="company_name" placeholder="Ex : Société ABC"
+                                value="{{ old('company_name') }}"
+                                class="rounded-md border border-gray-200 py-2 px-4 w-full focus:outline-none">
                         </div>
+
+                        <!-- Représentant -->
                         <div class="flex flex-col space-y-1">
-                            <label for="client_firstname">Prénom <span class="text-red-500">*</span></label>
-                            <input type="text" id="client_firstname" placeholder="Veuillez entrer le prénom"
-                                name="client_firstname" value="{{ old('client_firstname') }}"
-                                class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
+                            <label for="representative_name">Nom du représentant <span class="text-red-500">*</span></label>
+                            <input type="text" id="representative_name" name="representative_name"
+                                placeholder="Ex : Jean Dupont" value="{{ old('representative_name') }}"
+                                class="rounded-md border border-gray-200 py-2 px-4 w-full focus:outline-none">
                         </div>
+
+                        <!-- Lieu d'utilisation -->
                         <div class="flex flex-col space-y-1">
-                            <label for="client_company">Entreprise </label>
-                            <input type="text" id="client_company" placeholder="Veuillez entrer l'entreprise"
-                                name="client_company" value="{{ old('client_company') }}"
-                                class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
+                            <label for="usage_location">Lieu d'utilisation <span class="text-red-500">*</span></label>
+                            <input type="text" id="usage_location" name="usage_location"
+                                placeholder="Ex : Chantier Cotonou" value="{{ old('usage_location') }}"
+                                class="rounded-md border border-gray-200 py-2 px-4 w-full focus:outline-none">
                         </div>
+
+                        <!-- Durée en jours -->
                         <div class="flex flex-col space-y-1">
-                            <label for="client_role">Fonction</label>
-                            <input type="text" id="client_role" placeholder="Veuillez entrer la fonction"
-                                name="client_role" value="{{ old('client_role') }}"
-                                class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
+                            <label for="usage_duration">Durée de location (en jours) <span
+                                    class="text-red-500">*</span></label>
+                            <input type="number" id="usage_duration" name="usage_duration" placeholder="Ex : 14"
+                                value="{{ old('usage_duration') }}" min="1"
+                                class="rounded-md border border-gray-200 py-2 px-4 w-full focus:outline-none"
+                                oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                         </div>
+
+                        <!-- Email -->
                         <div class="flex flex-col space-y-1">
-                            <label for="client_phone">Téléphone</label>
-                            <input type="text" id="client_phone" max="14"
-                                placeholder="Veuillez entrer le téléphone" name="client_phone"
-                                value="{{ old('client_phone') }}"
-                                class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
+                            <label for="email">Adresse email</label>
+                            <input type="email" id="email" name="email" placeholder="exemple@mail.com"
+                                value="{{ old('email') }}"
+                                class="rounded-md border border-gray-200 py-2 px-4 w-full focus:outline-none">
                         </div>
+
+                        <!-- Contact GSM -->
                         <div class="flex flex-col space-y-1">
-                            <label for="client_email">Email <span class="text-red-500">*</span> </label>
-                            <input type="email" id="client_email" placeholder="Veuillez entrer l'email"
-                                name="client_email" value="{{ old('client_email') }}"
-                                class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full">
+                            <label for="gsm_number">Contact GSM <span class="text-red-500">*</span></label>
+                            <input type="tel" id="gsm_number" placeholder="0161000000"
+                                value="{{ old('gsm_number_display') }}"
+                                class="phone-input rounded-md border border-gray-200 py-2 w-full focus:outline-none">
+                            <!-- Champ caché pour envoyer la valeur complète -->
+                            <input type="hidden" name="gsm_number" id="gsm_number_full">
+                        </div>
+
+
+                        <!-- WhatsApp -->
+                        <div class="flex flex-col space-y-1">
+                            <label for="whatsapp_number">Contact WhatsApp</label>
+                            <input type="tel" id="whatsapp_number" placeholder="0161000000"
+                                value="{{ old('whatsapp_number_display') }}"
+                                class="phone-input rounded-md border border-gray-200 py-2 w-full focus:outline-none">
+                            <input type="hidden" name="whatsapp_number" id="whatsapp_number_full">
+                        </div>
+
+                        <!-- Date mobilisation -->
+                        <div class="flex flex-col space-y-1">
+                            <label for="mobilization_date">Date de mobilisation souhaitée</label>
+                            <input type="date" id="mobilization_date" name="mobilization_date"
+                                value="{{ old('mobilization_date') }}"
+                                class="rounded-md border border-gray-200 py-2 px-4 w-full focus:outline-none">
                         </div>
                     </div>
+
+                    <!-- Autres détails -->
                     <div class="flex flex-col space-y-1">
-                        <label for="motif">Motif</label>
-                        <textarea id="motif" placeholder="Veuillez entrer le motif" name="motif" rows="4"
-                            class="rounded-md border border-gray-200 focus:outline-none border-1 py-2 px-4 outline-none w-full"></textarea>
+                        <label for="additional_details">Autres détails</label>
+                        <textarea id="additional_details" name="additional_details" rows="4"
+                            placeholder="Ajoutez ici toutes précisions utiles..."
+                            class="rounded-md border border-gray-200 py-2 px-4 w-full focus:outline-none"></textarea>
                     </div>
+
+                    <!-- Bouton -->
                     <div class="flex justify-start mt-4">
                         <button type="submit" class="px-4 py-2 btn-custom">Envoyer</button>
                     </div>
                 </form>
+                <p class="text-sm sm:text-[1rem] mt-6"> <span class="font-semibold underline">NB:</span> Nos cotations ne
+                    prennent pas en compte le gasoil et le perdiem du conducteur de l'engin.</p>
             </div>
         </div>
     </section>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Machine;
 use Illuminate\Http\Request;
 
 class MachineController extends Controller
@@ -12,7 +13,9 @@ class MachineController extends Controller
      */
     public function index()
     {
-        //
+        $machines = Machine::paginate(10);
+
+        return view('apps.pages.backend.machines.index', compact('machines'));
     }
 
     /**

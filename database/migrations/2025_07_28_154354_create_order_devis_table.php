@@ -16,13 +16,15 @@ return new class extends Migration
             $table->string('devis_no');
             $table->double('price', 8, 2);
             $table->boolean('status')->default(true);
-            $table->string('client_firstname');
-            $table->string('client_lastname');
-            $table->string('client_email');
-            $table->string('client_phone')->nullable();
-            $table->string('client_company')->nullable();
-            $table->string('client_role')->nullable();
-            $table->longText('motif')->nullable();
+            $table->string('company_name');
+            $table->string('representative_name');
+            $table->string('usage_location');
+            $table->string('usage_duration');
+            $table->string('email');
+            $table->string('gsm_number');
+            $table->string('whatsapp_number')->nullable();
+            $table->string('mobilization_date');
+            $table->longText('additional_details')->nullable();
             $table->timestamps();
         });
     }

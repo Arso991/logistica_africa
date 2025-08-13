@@ -226,3 +226,20 @@ body {
 .side-menu__item .active .side-menu__label{
     color: #f2722b;
 }
+
+.image-circle {
+    height: 80px;
+    width: 80px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.image-circle img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.site-container{
+    @apply container mx-auto px-[.5rem] md:px-[0px] lg:px-[3rem];
+}

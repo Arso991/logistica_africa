@@ -30,3 +30,11 @@
 
     {{-- LEAFTJS --}}
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    {{-- INTL TEL INPUT --}}
+    <!-- 2. CSS intlTelInput -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@21.2.6/build/css/intlTelInput.css" />
+
+    <!-- 3. JS intlTelInput -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@21.2.6/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@21.2.6/build/js/utils.js"></script>

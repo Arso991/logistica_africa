@@ -28,4 +28,9 @@ class Machine extends Model
     protected $table = 'machines';
 
     protected $primaryKey = 'id';
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

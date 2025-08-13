@@ -291,33 +291,98 @@
     var navbar = $('#navbar');
     var menuList = $('#menu-list');
     var openSidebar = $('#openSidebar');
-    var scrollTrigger = 80;
+    var scrollTrigger = 100;
 
-    if (window.location.pathname !== '/') {
-      scrollTrigger = 80; // Déclenche le changement plus tôt
+    function setLightTheme() {
+      navbar.removeClass('backdrop-blur-sm').addClass('bg-[#ffffff]');
+      navbar.removeClass('absolute').addClass('fixed');
+      menuList.removeClass('text-[#ffffff]').addClass('text-[#333333]');
+      openSidebar.removeClass('text-[#ffffff]').addClass('text-[#333333]');
+      $('.logo1').hide();
+      $('.logo2').show();
     }
 
-    $(window).scroll(function () {
-      if ($(window).scrollTop() > 10) {
-        navbar.addClass('top-0'); // Ajoute la classe sticky
-      } else {
-        navbar.removeClass('top-0'); // Supprime la classe sticky
-      }
+    function setDarkTheme() {
+      navbar.removeClass('bg-[#ffffff]').addClass('backdrop-blur-sm');
+      navbar.removeClass('fixed').addClass('absolute');
+      menuList.removeClass('text-[#333333]').addClass('text-[#ffffff]');
+      openSidebar.removeClass('text-[#333333]').addClass('text-[#ffffff]');
+      $('.logo2').hide();
+      $('.logo1').show();
+    }
 
-      if ($(window).scrollTop() > scrollTrigger) {
-        navbar.removeClass('backdrop-blur-sm').addClass('bg-[#ffffff]');
-        menuList.removeClass('text-[#ffffff]').addClass('text-[#333333]');
-        openSidebar.removeClass('text-[#ffffff]').addClass('text-[#333333]');
-      } else {
-        navbar.removeClass('bg-[#ffffff]').addClass('backdrop-blur-sm');
-        menuList.removeClass('text-[#333333]').addClass('text-[#ffffff]');
-        openSidebar.removeClass('text-[#333333]').addClass('text-[#ffffff]');
-      }
+    if (window.location.pathname !== '/') {
+      // Pages internes → toujours en light theme
+      setLightTheme();
+      $(window).on('scroll', function () {
+        navbar.toggleClass('top-0', $(window).scrollTop() > 20);
+      });
+    } else {
+      // Page d'accueil → thème dynamique au scroll
+      $(window).on('scroll', function () {
+        var scrollTop = $(window).scrollTop();
+        navbar.toggleClass('top-0', scrollTop > 100);
 
-    });
+        if (scrollTop > scrollTrigger) {
+          setLightTheme();
+        } else {
+          setDarkTheme();
+        }
+      });
+    }
   });
   //TOGGLE NAVBAR END
 
+  //CUSTOM SELECT
+  $(document).ready(function () {
+    let $selectWrapper = $('#custom-category-select');
+    let $selected = $selectWrapper.find('.selected');
+    let $options = $selectWrapper.find('.options');
+    let $hiddenSelect = $('#category-filter');
+    let $selectedText = $('#selected-category-text');
+
+    // Affiche/masque la liste au clic
+    $selected.on('click', function () {
+      $options.toggle();
+    });
+
+    // Sélection d'une option
+    $options.on('click', 'li', function () {
+      let value = $(this).data('value');
+      let text = $(this).text();
+
+      $selectedText.text(text);
+      $hiddenSelect.val(value).trigger('change');
+      $options.hide();
+    });
+
+    // Fermer si clic en dehors
+    $(document).on('click', function (e) {
+      if (!$(e.target).closest('#custom-category-select').length) {
+        $options.hide();
+      }
+    });
+
+    // Charger la valeur actuelle si déjà sélectionnée (ex: retour sur page filtrée)
+    let currentValue = $hiddenSelect.val();
+    if (currentValue) {
+      let currentText = $options.find(`li[data-value="${currentValue}"]`).text();
+      $selectedText.text(currentText);
+    }
+  })
+
+  /*   $(document).ready(function () {
+      $(".phone-input").each(function () {
+        $(this).intlTelInput({
+          initialCountry: "bj",
+          preferredCountries: ["bj", "fr", "us"],
+          separateDialCode: true,
+          utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+        });
+      });
+    }); */
+
+  //BANNER CARROUSSEL
   $("#banner-carousel").slick({
     dots: true,
     autoplay: true,
@@ -328,6 +393,108 @@
     fade: true,
     cssEase: 'linear'
   });
+
+  //FEATURES MACHINES CARROUSSEL
+  $("#featured-machine-carousel").slick({
+    dots: false,
+    arrows: false,
+    infinite: true,
+    centerMode: false,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ],
+    cssEase: 'linear'
+  });
+
+  //PARTNER CARROUSSEL
+  $("#partner-carroussel").slick({
+    dots: false,
+    arrows: false,
+    infinite: true,
+    centerMode: false,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ],
+    cssEase: 'linear'
+  });
+
+  //TESTIMONIAL CARROUSSEL
+  $("#testimonial-caroussel").slick({
+    dots: false,
+    arrows: false,
+    infinite: true,
+    centerMode: false,
+    speed: 300,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ],
+    cssEase: 'linear'
+  });
+
+
 
   // Initialize the map
   if (window.location.pathname === "/contact") {
@@ -507,11 +674,49 @@ function resetData() {
   localStorage.clear()
 }
 
-/* Landing page switcher */
+document.addEventListener("DOMContentLoaded", function () {
+  const phoneInputs = document.querySelectorAll(".phone-input");
 
-// DARK MODE
-// $('body').addClass('dark-mode');
+  // Stocker les instances
+  const itiInstances = {};
 
-// RTL
-// $('body').addClass('rtl');
+  phoneInputs.forEach(input => {
+    const iti = window.intlTelInput(input, {
+      initialCountry: "bj", // Bénin 🇧🇯 par défaut
+      preferredCountries: ["bj", "fr", "us"],
+      separateDialCode: true,
+      utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@21.2.6/build/js/utils.js"
+    });
+
+    itiInstances[input.id] = iti;
+
+    // Empêcher plus de chiffres que la longueur max du pays
+    input.addEventListener("input", function () {
+      //const countryData = iti.getSelectedCountryData();
+      //const exampleNumber = intlTelInputUtils.getExampleNumber(countryData.iso2, true, intlTelInputUtils.numberFormat.NATIONAL);
+      //const maxLength = exampleNumber.replace(/\D/g, '').length; // nombre max de chiffres
+      this.value = this.value.replace(/\D/g, '')
+    });
+  });
+
+  // Avant envoi du formulaire, remplir tous les champs cachés
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function () {
+      phoneInputs.forEach(input => {
+        const iti = itiInstances[input.id];
+        const fullInputId = input.id + "_full";
+        const hiddenInput = document.getElementById(fullInputId);
+        if (hiddenInput && iti) {
+          const countryData = iti.getSelectedCountryData();
+          const dialCode = "+" + countryData.dialCode; // indicatif
+          const number = input.value.replace(/\D/g, ''); // numéro sans espaces ni lettres
+
+          // Formater le numéro complet avec indicatif + numéro
+          hiddenInput.value = dialCode + number;
+        }
+      });
+    });
+  });
+});
+
 

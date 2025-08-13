@@ -1,5 +1,5 @@
 <section class="mb-[2.5rem] md:mb-[5rem] bg-[#f8f9fb]">
-    <div class="container mx-auto py-[2.5rem] space-y-4 md:space-y-6">
+    <div class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] space-y-4 md:space-y-6">
         @include('components.widgets.title', ['title' => 'A propos de nous'])
 
         <div class="block md:flex gap-[2rem] items-center">

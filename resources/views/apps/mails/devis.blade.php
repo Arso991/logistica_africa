@@ -64,38 +64,61 @@
 
             <table border="0" cellpadding="5" cellspacing="0" width="100%">
                 <tr>
-                    <td><strong>Nom & Prénom :</strong></td>
-                    <td>{{ $devisData['client_lastname'] }} {{ $devisData['client_firstname'] }}</td>
+                    <td><strong>Nom de l'entreprise :</strong></td>
+                    <td>{{ $devisData['company_name'] }} </td>
                 </tr>
+
                 <tr>
-                    <td><strong>Email :</strong></td>
-                    <td>{{ $devisData['client_email'] }}</td>
+                    <td><strong>Nom du représentant de l'entreprise :</strong></td>
+                    <td>{{ $devisData['representative_name'] }}</td>
                 </tr>
-                @if (!empty($devisData['client_company']))
+
+                @if (!empty($devisData['usage_duration']))
                     <tr>
-                        <td><strong>Entreprise :</strong></td>
-                        <td>{{ $devisData['client_company'] ?? 'Non renseigné' }}</td>
+                        <td><strong>Durée de location :</strong></td>
+                        <td>{{ $devisData['usage_duration'] . 'jour(s)' ?? 'Non renseigné' }}</td>
                     </tr>
                 @endif
 
-                @if (!empty($devisData['client_phone']))
+                @if (!empty($devisData['usage_location']))
                     <tr>
-                        <td><strong>Téléphone :</strong></td>
-                        <td>{{ $devisData['client_phone'] ?? 'Non renseigné' }}</td>
+                        <td><strong>Lieu d'utilisation :</strong></td>
+                        <td>{{ $devisData['usage_location'] ?? 'Non renseigné' }}</td>
                     </tr>
                 @endif
 
-                @if (!empty($devisData['client_role']))
+                @if (!empty($devisData['email']))
                     <tr>
-                        <td><strong>Fonction :</strong></td>
-                        <td>{{ $devisData['client_role'] }}</td>
+                        <td><strong>Adresse Mail :</strong></td>
+                        <td>{{ $devisData['email'] }}</td>
                     </tr>
                 @endif
 
-                @if (!empty($devisData['motif']))
+                @if (!empty($devisData['gsm_number']))
                     <tr>
-                        <td><strong>Motif :</strong></td>
-                        <td>{{ $devisData['motif'] }}</td>
+                        <td><strong>Contact GSM :</strong></td>
+                        <td>{{ $devisData['gsm_number'] }}</td>
+                    </tr>
+                @endif
+
+                @if (!empty($devisData['whatsapp_number']))
+                    <tr>
+                        <td><strong>Contact Whatsapp :</strong></td>
+                        <td>{{ $devisData['whatsapp_number'] }}</td>
+                    </tr>
+                @endif
+
+                @if (!empty($devisData['mobilization_date']))
+                    <tr>
+                        <td><strong>Date de mobilisation souhaitée :</strong></td>
+                        <td>{{ $devisData['mobilization_date'] }}</td>
+                    </tr>
+                @endif
+
+                @if (!empty($devisData['additional_details']))
+                    <tr>
+                        <td><strong>Autre détails :</strong></td>
+                        <td>{{ $devisData['additional_details'] }}</td>
                     </tr>
                 @endif
 

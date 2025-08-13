@@ -18,7 +18,7 @@ class ViewController extends Controller
     {
         $banner = Banner::first();
         $about = About::first();
-        $services = Service::where('status', true)->latest()->get();
+        $services = Service::where('status', true)->get();
         $categories = Category::latest()->get();
         $machines = Machine::limit(4)->get();
 
@@ -30,7 +30,12 @@ class ViewController extends Controller
         $about = About::first();
         $values = Value::where('status', true)->latest()->get();
 
-        return view('apps.pages.frontend.about', compact('about', 'values'));
+        $breadcrumbs = [
+            ['label' => 'Accueil', 'url' => route('view.home')],
+            ['label' => 'À propos', 'url' => null]
+        ];
+
+        return view('apps.pages.frontend.about', compact('about', 'values', 'breadcrumbs'));
     }
 
     public function catalog(Request $request)
@@ -50,25 +55,54 @@ class ViewController extends Controller
         $machines = $query->latest()->paginate(12);
         $categories = Category::all(); // Pour le filtre dans la vue
 
-        return view('apps.pages.frontend.catalog', compact('machines', 'categories'));
+        $breadcrumbs = [
+            ['label' => 'Accueil', 'url' => route('view.home')],
+            ['label' => 'Catalogue', 'url' => route('view.catalog')],
+        ];
+
+        if ($request->filled('search')) {
+            $breadcrumbs[] = ['label' => e($request->search), 'url' => null];
+        } elseif ($request->filled('category')) {
+            $categoryName = Category::find($request->category)?->name ?? 'Inconnue';
+            $breadcrumbs[] = ['label' => $categoryName, 'url' => null];
+        }
+
+        return view('apps.pages.frontend.catalog', compact('machines', 'categories', 'breadcrumbs'));
     }
 
     public function posts()
     {
         $posts = Post::where('status', 'publish')->latest()->get();
 
-        return view('apps.pages.frontend.posts', compact('posts'));
+        $breadcrumbs = [
+            ['label' => 'Accueil', 'url' => route('view.home')],
+            ['label' => 'Actualités', 'url' => null]
+        ];
+
+        return view('apps.pages.frontend.posts', compact('posts', 'breadcrumbs'));
     }
 
     public function post(string $id)
     {
         $post = Post::find($id);
-        return view('apps.pages.frontend.post', compact('post'));
+
+        $breadcrumbs = [
+            ['label' => 'Accueil', 'url' => route('view.home')],
+            ['label' => 'Actualité', 'url' => route('view.posts')],
+            ['label' => $post->title, 'url' => null],
+        ];
+
+        return view('apps.pages.frontend.post', compact('post', 'breadcrumbs'));
     }
 
     public function contact()
     {
-        return view('apps.pages.frontend.contact');
+        $breadcrumbs = [
+            ['label' => 'Accueil', 'url' => route('view.home')],
+            ['label' => 'Contacts', 'url' => null]
+        ];
+
+        return view('apps.pages.frontend.contact', compact('breadcrumbs'));
     }
 
     public function dashboard()
@@ -80,18 +114,38 @@ class ViewController extends Controller
     {
         $machine = Machine::find($id);
 
-        return view('apps.pages.frontend.detail', compact('machine'));
+        $categoryName = Category::find($machine->category_id)?->name ?? 'Inconnue';
+
+        $breadcrumbs = [
+            ['label' => 'Accueil', 'url' => route('view.home')],
+            ['label' => 'Catalogue', 'url' => route('view.catalog')],
+            //['label' => $categoryName->name, 'url' => route('view.catalog', ['query' => $categoryName->id])],
+            ['label' => $machine->name, 'url' => null],
+        ];
+
+        return view('apps.pages.frontend.detail', compact('machine', 'breadcrumbs'));
     }
 
     public function devis()
     {
         $cart = session()->get('cart', []);
-        return view('apps.pages.frontend.devis', compact('cart'));
+
+        $breadcrumbs = [
+            ['label' => 'Accueil', 'url' => route('view.home')],
+            ['label' => 'Demander un devis', 'url' => null],
+        ];
+
+        return view('apps.pages.frontend.devis', compact('cart', 'breadcrumbs'));
     }
 
     public function congrats()
     {
-        return view('apps.pages.frontend.congrats');
+        $breadcrumbs = [
+            ['label' => 'Accueil', 'url' => route('view.home')],
+            ['label' => 'Félicitations', 'url' => null],
+        ];
+
+        return view('apps.pages.frontend.congrats', compact('breadcrumbs'));
     }
 
     public function searchStore(Request $request)
