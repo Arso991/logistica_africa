@@ -4,6 +4,7 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\AppBasics;
 use App\Models\Banner;
 use App\Models\Category;
 use App\Models\Machine;
@@ -166,5 +167,12 @@ class ViewController extends Controller
         }
 
         return view('apps.pages.frontend.catalog', compact('machines'));
+    }
+
+    public function privacy()
+    {
+        $appBasics = AppBasics::first();
+
+        return view('apps.pages.frontend.privacy', compact('appBasics'));
     }
 }

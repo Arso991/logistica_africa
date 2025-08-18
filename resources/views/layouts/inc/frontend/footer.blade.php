@@ -60,7 +60,8 @@
                                     devis</a>
                             </li>
                             <li>
-                                <a href="" class="hover:font-bold hover:underline">Politique de
+                                <a href="{{ route('view.privacy') }}" class="hover:font-bold hover:underline">Politique
+                                    de
                                     confidentialité</a>
                             </li>
                         </ul>
