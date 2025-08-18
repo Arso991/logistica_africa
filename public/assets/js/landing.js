@@ -397,12 +397,14 @@
   //FEATURES MACHINES CARROUSSEL
   $("#featured-machine-carousel").slick({
     dots: false,
-    arrows: false,
+    arrows: true,
     infinite: true,
     centerMode: false,
     speed: 300,
     slidesToShow: 4,
     slidesToScroll: 1,
+    prevArrow: $('#featured-arrows .slick-prev'),
+    nextArrow: $('#featured-arrows .slick-next'),
     responsive: [
       {
         breakpoint: 1024,
@@ -432,7 +434,7 @@
   //PARTNER CARROUSSEL
   $("#partner-carroussel").slick({
     dots: false,
-    arrows: false,
+    arrows: true,
     infinite: true,
     centerMode: false,
     autoplay: true,
@@ -440,6 +442,8 @@
     speed: 300,
     slidesToShow: 4,
     slidesToScroll: 1,
+    prevArrow: $('#partner-arrows .slick-prev'),
+    nextArrow: $('#partner-arrows .slick-next'),
     responsive: [
       {
         breakpoint: 1024,
@@ -469,12 +473,14 @@
   //TESTIMONIAL CARROUSSEL
   $("#testimonial-caroussel").slick({
     dots: false,
-    arrows: false,
+    arrows: true,
     infinite: true,
     centerMode: false,
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 1,
+    prevArrow: $('#testimonial-arrows .slick-prev'),
+    nextArrow: $('#testimonial-arrows .slick-next'),
     responsive: [
       {
         breakpoint: 600,
