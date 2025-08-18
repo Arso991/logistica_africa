@@ -31,7 +31,7 @@ return Application::configure(basePath: dirname(__DIR__))
         });
 
         $exceptions->render(function (Throwable $e, $request) {
-            dd($e);
+            //dd($e);
             return response()->view('errors.500', ['error' => $e->getMessage()], 500);
         });
     })->create();
