@@ -17,6 +17,7 @@ return new class extends Migration
             $table->enum('plateform_current_state', $this->state)->default('RUN');
             $table->string('contact')->nullable();
             $table->string('email')->nullable();
+            $table->longText('privacy_policy')->nullable();
             $table->timestamps();
         });
     }

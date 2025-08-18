@@ -24,6 +24,7 @@ Route::group([], function () {
     Route::get('/cart',                                 [CartController::class, 'index'])->name('view.cart');
     Route::get('/congrats',                             [ViewController::class, 'congrats'])->name('view.congrats');
     Route::get('/search',                               [ViewController::class, 'searchStore'])->name('view.search');
+    Route::get('/privacy',                              [ViewController::class, 'privacy'])->name('view.privacy');
 
     Route::post('/cart/add',                            [CartController::class, 'add'])->name('cart.add');
     Route::post('/cart/remove',                         [CartController::class, 'remove'])->name('cart.remove');
