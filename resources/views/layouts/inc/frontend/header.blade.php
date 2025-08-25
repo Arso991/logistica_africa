@@ -1,5 +1,5 @@
 <!-- app-Header -->
-<div class=" bg-gray-200 h-[100px] w-full">
+<div class=" bg-gray-200 py-4 w-full">
     <div
         class="container px-[1rem] md:px-[0px] lg:px-[3rem] w-full h-full mx-auto flex items-center justify-between gap-4">
         <a href="{{ route('view.home') }}" class="w-[6rem] md:w-[8rem] h-[4rem] -mb-[1rem] hidden md:block">
@@ -10,7 +10,12 @@
             <span id="openSidebar" class="mdi mdi-menu text-3xl text-[#333333] cursor-pointer"></span>
         </div>
 
-        <div class="w-full flex justify-start md:w-1/3">
+        <div class="w-[10rem] md:w-[8rem] -mb-[.5rem] block md:hidden">
+            <img src="{{ asset('assets/images/brand/logo-compact-noir.png') }}" alt="Logo"
+                class="w-full h-full object-contain transition ease-out duration-300">
+        </div>
+
+        <div class="w-full md:flex justify-start md:w-1/3 hidden">
             <div class="relative w-full">
                 <form action="{{ route('view.catalog') }}" method="GET">
                     @csrf
@@ -24,6 +29,7 @@
                 </form>
             </div>
         </div>
+
         <div class="flex items-center gap-3">
             <a target="_blank" href="https://web.facebook.com/logisticaafrica" class="hover:text-[#f2722b]">
                 <span class="text-xl mdi mdi-facebook"></span>
@@ -41,6 +47,20 @@
         </div>
     </div>
 
+    <div class="w-full flex md:hidden justify-center mt-2">
+        <div class="relative max-w-xl">
+            <form action="{{ route('view.catalog') }}" method="GET">
+                @csrf
+                <input value="{{ request('search') }}" name="search"
+                    class="rounded-2xl border-gray-200 focus:outline-none border py-3 px-6 outline-none w-full shadow-xl"
+                    type="text" placeholder="Rechercher un materiel...">
+                <button onclick="this.form.submit()"
+                    class="absolute left-2 z-30 inset-y-0 flex items-center pr-2 cursor-pointer">
+                    <span class="mdi mdi-magnify text-xl text-[#f2722b]"></span>
+                </button>
+            </form>
+        </div>
+    </div>
 </div>
 <div id="navbar"
     class="h-18 absolute py-[0.5rem] left-0 right-0 backdrop-blur-sm z-50 md:flex items-center shadow-sm hidden">
