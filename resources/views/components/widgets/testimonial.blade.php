@@ -1,5 +1,5 @@
 <section id="clients"
-    class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto mb-[2.5rem] md:mb-[5rem] space-y-4 md:space-y-6">
+    class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto mb-[2.5rem] md:mb-[5rem] space-y-4 md:space-y-6">
     <div class="flex items-center justify-between">
         @include('components.widgets.title', ['title' => 'Avis client'])
 

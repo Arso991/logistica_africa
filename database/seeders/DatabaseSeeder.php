@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             TestimonialSeeder::class,
             MachineSeeder::class,
             PartnerSeeder::class,
+            BannerCarrouselSeeder::class
         ]);
     }
 }

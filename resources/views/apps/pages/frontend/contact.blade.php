@@ -5,7 +5,7 @@
 @section('content')
     @include('components.widgets.breadcrumb')
 
-    <section class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
+    <section class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
         <div class="flex justify-center">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[10rem]">
                 <div class="space-y-4 flex flex-col items-center">

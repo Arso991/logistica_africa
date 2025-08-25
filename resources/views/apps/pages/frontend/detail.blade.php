@@ -5,7 +5,7 @@
 @section('content')
     @include('components.widgets.breadcrumb')
 
-    <section class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
+    <section class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
         <div class="block md:flex gap-6">
             <div class="w-full md:flex-1 mb-6 md:mt-0 block md:hidden">
                 <div class="h-[400px] rounded-lg overflow-hidden mb-4">

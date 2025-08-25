@@ -5,7 +5,7 @@
 @section('content')
     @include('components.widgets.breadcrumb')
 
-    <section class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
+    <section class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             @foreach ($posts as $item)
                 <div class="space-y-4 rounded-xl hover:shadow-md transition-all ease-in-out duration-300">
