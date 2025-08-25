@@ -36,8 +36,9 @@ body {
 .slick-dots {
     position: absolute;
     bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    padding-left: 1.25rem;
+    /* left: 50%;
+    transform: translateX(-50%); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,15 +51,15 @@ body {
 
 .slick-dots li button {
     font-size: 0;
-    width: 10px;
-    height: 10px;
+    width: 30px;
+    height: 5px;
     background-color: #f8f9fb;
-    border-radius: 50%;
+    border-radius: 20px;
     border: none;
 }
 
 .slick-dots li.slick-active button {
-    background-color: #e4e4e4;
+    background-color: #f2722b;
 }
 
 /* CSS */

@@ -6,7 +6,7 @@
     @include('components.widgets.breadcrumb')
 
 
-    <section class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem] flex justify-center">
+    <section class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem] flex justify-center">
         <div class="border rounded-md p-5 w-[500px]">
             <!-- Onglets -->
             <div class="flex justify-center">

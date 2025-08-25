@@ -3,7 +3,7 @@
 @section('title', 'Politique de confidentialité')
 
 @section('content')
-    <section class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
+    <section class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
         <div class="privacy">
             @if ($appBasics->privacy_policy)
                 {!! $appBasics->privacy_policy !!}

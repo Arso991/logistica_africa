@@ -1,5 +1,5 @@
 <section>
-    <div class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto mt-9">
+    <div class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto mt-9">
         @if ($breadcrumbs)
             <ul class="flex flex-wrap text-lg md:text-xl">
                 @foreach ($breadcrumbs as $breadcrumb)

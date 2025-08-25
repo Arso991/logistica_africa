@@ -5,7 +5,7 @@
 @section('content')
     @include('components.widgets.breadcrumb')
 
-    <section class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
+    <section class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
         <div class="block md:flex justify-end mb-[2rem]">
             <div class="flex items-center gap-4 text-sm sm:text-[1rem] leading-7">
                 <label class="mb-0 font-semibold">Catégories</label>

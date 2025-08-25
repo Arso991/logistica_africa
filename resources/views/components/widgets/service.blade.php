@@ -1,15 +1,13 @@
 <section id="services"
-    class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto pb-[2.5rem] md:pb-[5rem] space-y-4 md:space-y-6">
+    class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto pb-[2.5rem] md:pb-[5rem] space-y-4 md:space-y-6">
     @include('components.widgets.title', ['title' => 'Nos services'])
 
-    <div class="flex justify-center">
-        <div class="text-sm sm:text-[1rem] text-center w-full md:w-[60%] leading-6">
-            <h2 class="font-semibold mb-2 md:mb-4">La force logistique au service de vos chantiers</h2>
-            <p>Solutions de transport, levage et location d’engins pour construire les projets
-                d’aujourd’hui
-                et relever les défis de demain.
-            </p>
-        </div>
+    <div class="text-sm sm:text-[1rem] w-full leading-6">
+        <h2 class="font-semibold mb-2 md:mb-4">La force logistique au service de vos chantiers</h2>
+        <p class="max-w-4xl w-full">Solutions de transport, levage et location d’engins pour construire les projets
+            d’aujourd’hui
+            et relever les défis de demain.
+        </p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {{-- <div

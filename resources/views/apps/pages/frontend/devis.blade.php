@@ -6,21 +6,21 @@
     @include('components.widgets.breadcrumb')
 
 
-    <section class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
+    <section class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
         <div class="border rounded-md p-5">
             <!-- Onglets -->
             <div class="flex justify-center mb-6 space-x-4">
                 <button id="show-recap"
-                    class="switcher-btn px-4 py-2 rounded-md text-sm font-semibold bg-primary text-[#f2722b] border border-[#f2722b]">
+                    class="switcher-btn px-4 py-2 rounded-md text-sm font-semibold {{ $cart && count($cart) > 0 ? 'bg-primary text-[#f2722b] border border-[#f2722b]' : 'bg-gray-200 text-gray-700' }}">
                     Récapitulatif
                 </button>
                 <button id="show-form"
-                    class="switcher-btn px-4 py-2 rounded-md text-sm font-semibold bg-gray-200 text-gray-700">
+                    class="switcher-btn px-4 py-2 rounded-md text-sm font-semibold {{ $cart && count($cart) > 0 ? 'bg-gray-200 text-gray-700' : 'bg-primary text-[#f2722b] border border-[#f2722b]' }}">
                     Formulaire
                 </button>
             </div>
 
-            <div class="" id="recap-section">
+            <div class="{{ $cart && count($cart) > 0 ? '' : 'hidden' }}" id="recap-section">
                 <h2 class="text-sm sm:text-[1rem] text-center font-semibold mb-6">Récapitulatif</h2>
                 @if ($cart && count($cart) > 0)
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -90,7 +90,7 @@
                     <button id="next-step" class="px-6 py-2 btn-custom">Continuer</button>
                 </div>
             </div>
-            <div class="hidden" id="form-section">
+            <div class="{{ $cart && count($cart) > 0 ? 'hidden' : '' }}" id="form-section">
                 <h2 class="text-sm sm:text-[1rem] text-center font-semibold mb-2">Informations</h2>
                 <p class="text-center mb-6">Pour demander un devis veuillez svp nous donner quelques détails</p>
                 <form action="{{ route('cart.save') }}" method="POST" class="space-y-4">
@@ -141,22 +141,12 @@
 
                         <!-- Contact GSM -->
                         <div class="flex flex-col space-y-1">
-                            <label for="gsm_number">Contact GSM <span class="text-red-500">*</span></label>
+                            <label for="gsm_number">Contact GSM ou WhatsApp <span class="text-red-500">*</span></label>
                             <input type="tel" id="gsm_number" placeholder="0161000000"
                                 value="{{ old('gsm_number_display') }}"
                                 class="phone-input rounded-md border border-gray-200 py-2 w-full focus:outline-none">
                             <!-- Champ caché pour envoyer la valeur complète -->
                             <input type="hidden" name="gsm_number" id="gsm_number_full">
-                        </div>
-
-
-                        <!-- WhatsApp -->
-                        <div class="flex flex-col space-y-1">
-                            <label for="whatsapp_number">Contact WhatsApp</label>
-                            <input type="tel" id="whatsapp_number" placeholder="0161000000"
-                                value="{{ old('whatsapp_number_display') }}"
-                                class="phone-input rounded-md border border-gray-200 py-2 w-full focus:outline-none">
-                            <input type="hidden" name="whatsapp_number" id="whatsapp_number_full">
                         </div>
 
                         <!-- Date mobilisation -->

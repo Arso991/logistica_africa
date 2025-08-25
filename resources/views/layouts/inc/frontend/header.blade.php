@@ -1,9 +1,13 @@
 <!-- app-Header -->
 <div class=" bg-gray-200 h-[100px] w-full">
     <div
-        class="container px-[.5rem] md:px-[0px] lg:px-[3rem] w-full h-full mx-auto flex items-center justify-between gap-4">
-        <div class="w-[6rem] md:w-[8rem] h-[4rem] -mb-[1rem] hidden md:block">
+        class="container px-[1rem] md:px-[0px] lg:px-[3rem] w-full h-full mx-auto flex items-center justify-between gap-4">
+        <a href="{{ route('view.home') }}" class="w-[6rem] md:w-[8rem] h-[4rem] -mb-[1rem] hidden md:block">
             <img src="{{ asset('assets/images/brand/logo.png') }}" alt="Logo" class="w-full h-full object-contain ">
+        </a>
+
+        <div class="block md:hidden">
+            <span id="openSidebar" class="mdi mdi-menu text-3xl text-[#333333] cursor-pointer"></span>
         </div>
 
         <div class="w-full flex justify-start md:w-1/3">
@@ -28,11 +32,18 @@
             <a target="_blank" href="https://www.linkedin.com/company/logisticafrica/" class="hover:text-[#f2722b]">
                 <span class="text-xl mdi mdi-linkedin"></span>
             </a>
+
+            <a target="_blank" href="https://www.tiktok.com/@logistica.africa?_t=ZM-8z0mDhRr2Cj&_r=1"
+                class="hover:text-[#f2722b] w-[20px]">
+                <img src="https://img.icons8.com/?size=100&id=soupkpLfTkZi&format=png&color=000000"
+                    class=" hover:text-[#f2722b]" alt="">
+            </a>
         </div>
     </div>
 
 </div>
-<div id="navbar" class="h-18 absolute py-[0.5rem] left-0 right-0 backdrop-blur-sm z-50 flex items-center shadow-sm">
+<div id="navbar"
+    class="h-18 absolute py-[0.5rem] left-0 right-0 backdrop-blur-sm z-50 md:flex items-center shadow-sm hidden">
     <div class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto flex items-center justify-between">
         <div class="w-[6rem] md:w-[8rem] h-[4rem] -mb-[1rem] block md:hidden">
             <img src="{{ asset('assets/images/brand/logo-blanc.png') }}" alt="Logo"
@@ -40,7 +51,7 @@
             <img src="{{ asset('assets/images/brand/logo.png') }}" alt="Logo"
                 class="w-full h-full object-contain hidden transition ease-out duration-300 logo2">
         </div>
-        <ul id="menu-list" class="hidden md:flex items-center gap-8 text-[#ffffff] uppercase">
+        <ul id="menu-list" class=" md:flex items-center gap-8 text-[#ffffff] uppercase">
             <li>
                 <a href="{{ route('view.home') }}"
                     class="hover:text-[#f2722b] transition-all ease-in-out duration-300 {{ Request::is('/') ? 'font-medium text-[#f2722b]' : '' }}">Accueil</a>
@@ -66,9 +77,6 @@
         <div class="flex items-center gap-3">
             <a href="{{ route('view.devis') }}" class="hidden sm:flex items-center btn-custom">Devis
                 <span class="mdi mdi-calculator text-lg"></span></a>
-            <div class="block md:hidden">
-                <span id="openSidebar" class="mdi mdi-menu text-3xl text-[#ffffff] cursor-pointer"></span>
-            </div>
         </div>
     </div>
 </div>
@@ -108,7 +116,7 @@
                 </li>
             </ul>
 
-            <div class="flex sm:hidden">
+            <div class="flex">
                 <a href="{{ route('view.devis') }}" class="flex items-center btn-custom">Devis
                     <span class="mdi mdi-calculator text-lg"></span></a>
             </div>

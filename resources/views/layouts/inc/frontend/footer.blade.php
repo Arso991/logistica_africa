@@ -1,9 +1,9 @@
 <!-- FOOTER OPEN -->
 <div class="py-[2rem] md:py-[3rem] bg-black text-white border-y border-white">
-    <div class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto space-y-6">
+    <div class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto space-y-6">
         <div class="block md:flex gap-6">
-            <div class="w-full md:w-1/2 flex md:block flex-col items-center space-y-4">
-                <div class="w-[14rem] md:w-[16rem] ml-0 md:-ml-[25px] h-[4rem]">
+            <div class="w-full md:w-1/2 flex md:block flex-col space-y-4">
+                <div class="w-[14rem] md:w-[16rem] -ml-[25px] h-[4rem]">
                     <img src="{{ asset('assets/images/brand/logo-compact-blanc.png') }}" alt="Logo"
                         class="w-full h-full object-contain">
                 </div>
@@ -16,15 +16,18 @@
                         class="h-6 w-6 p-4 bg-white rounded-full border-2 hover:border-[#f2722b] flex items-center justify-center cursor-pointer transition-all ease-in-out duration-300">
                         <span class="mdi mdi-linkedin text-xl"></span>
                     </a>
-                    {{-- <div
-                        class="h-6 w-6 p-4 bg-white rounded-full border-2 hover:border-[#f2722b] flex items-center justify-center cursor-pointer transition-all ease-in-out duration-300">
-                        <span class="mdi mdi-whatsapp text-xl"></span>
-                    </div> --}}
+
+                    <a target="_blank" href="https://www.tiktok.com/@logistica.africa?_t=ZM-8z0mDhRr2Cj&_r=1"
+                        class="h-[2.3rem] w-[2.3rem] bg-white rounded-full border-2 hover:border-[#f2722b] flex items-center justify-center cursor-pointer transition-all ease-in-out duration-300">
+                        <img src="https://img.icons8.com/?size=100&id=soupkpLfTkZi&format=png&color=000000"
+                            class=" hover:text-[#f2722b] w-[24px]" alt="">
+                    </a>
+
                 </div>
             </div>
             <div class="w-full md:flex-1 mt-6 md:mt-0">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 uppercase">
-                    <div class="space-y-4 text-center md:text-left">
+                    <div class="space-y-4 ">
                         <h2 class="text-[14px] sm:text-lg font-semibold">Pages</h2>
                         <ul class="text-sm sm:text-[1rem] space-y-3">
                             <li>
@@ -44,7 +47,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="space-y-4 text-center md:text-left">
+                    <div class="space-y-4 ">
                         <h2 class="text-[14px] sm:text-lg font-semibold">Informations</h2>
                         <ul class="text-sm sm:text-[1rem] space-y-3">
                             <li>
