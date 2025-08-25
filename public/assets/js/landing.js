@@ -297,7 +297,7 @@
       navbar.removeClass('backdrop-blur-sm').addClass('bg-[#ffffff]');
       navbar.removeClass('absolute').addClass('fixed');
       menuList.removeClass('text-[#ffffff]').addClass('text-[#333333]');
-      openSidebar.removeClass('text-[#ffffff]').addClass('text-[#333333]');
+      //openSidebar.removeClass('text-[#ffffff]').addClass('text-[#333333]');
       $('.logo1').hide();
       $('.logo2').show();
     }
@@ -306,7 +306,7 @@
       navbar.removeClass('bg-[#ffffff]').addClass('backdrop-blur-sm');
       navbar.removeClass('fixed').addClass('absolute');
       menuList.removeClass('text-[#333333]').addClass('text-[#ffffff]');
-      openSidebar.removeClass('text-[#333333]').addClass('text-[#ffffff]');
+      //openSidebar.removeClass('text-[#333333]').addClass('text-[#ffffff]');
       $('.logo2').hide();
       $('.logo1').show();
     }
