@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\AppBasics;
 use App\Models\Banner;
+use App\Models\BannerCarrousel;
 use App\Models\Category;
 use App\Models\Machine;
 use App\Models\Partner;
@@ -24,8 +25,9 @@ class ViewController extends Controller
         $categories = Category::latest()->get();
         $machines = Machine::limit(4)->get();
         $partners = Partner::where('status', true)->get();
+        $bannerCarrousel = BannerCarrousel::all();
 
-        return view('apps.pages.frontend.index', compact('banner', 'about', 'services', 'categories', 'machines', 'partners'));
+        return view('apps.pages.frontend.index', compact('banner', 'about', 'services', 'categories', 'machines', 'partners', 'bannerCarrousel'));
     }
 
     public function about()

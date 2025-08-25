@@ -383,14 +383,25 @@
     }); */
 
   //BANNER CARROUSSEL
-  $("#banner-carousel").slick({
+  $("#banner-carousel-web").slick({
     dots: true,
-    autoplay: true,
+    autoplay: false,
     arrows: false,
     infinite: true,
     autoplaySpeed: 2000,
     pauseOnHover: false,
     fade: true,
+    cssEase: 'linear'
+  });
+
+  $("#banner-carousel-mobile").slick({
+    dots: true,
+    autoplay: false,
+    arrows: false,
+    infinite: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: false,
+    fade: false,
     cssEase: 'linear'
   });
 

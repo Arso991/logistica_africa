@@ -5,7 +5,7 @@
 @section('content')
     @include('components.widgets.breadcrumb')
 
-    <section class="container px-[.5rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
+    <section class="container px-[1rem] md:px-[0px] lg:px-[3rem] mx-auto py-[2.5rem] md:py-[5rem]">
         <h1 class="text-xl md:text-[1.5rem] lg:text-[2rem] leading-7 font-semibold mb-6">{{ $post->title }}</h1>
         <div class="block sm:flex justify-end px-0 sm:px-10 gap-4 items-center mb-2">
             <p class="text-xs sm:text-[0.9rem] text-gray-600">{{ $post->estimated_reading_time }} minutes de
